@@ -1,8 +1,8 @@
 import { getUsers } from "../data/provider.js"
 
 
-document.addEventListener("click", clickEvent => {
-    if (clickEvent.target.id === "loginButton") {
+document.addEventListener("click", (event)=> {
+    if (event.target.id === "loginButton") {
         let foundUser = null
         const userState = getUsers()
 
