@@ -48,63 +48,63 @@ export const getLikes = () => {
 }
 
 
-// export const sendPost = post => {
-//     const fetchOptions = {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify(post)
-//     }
+export const sendPost = post => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(post)
+    }
 
-//     return fetch(`${API}/post`, fetchOptions)
-//         .then(response => response.json())
-//         .then(() => {
-//             appContainer.dispatchEvent(new CustomEvent("stateChanged"))
-//         })
-// }
-// export const sendLikes = like => {
-//     const fetchOptions = {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify(like)
-//     }
+    return fetch(`${API}/post`, fetchOptions)
+        .then(response => response.json())
+        .then(() => {
+            appContainer.dispatchEvent(new CustomEvent("stateChanged"))
+        })
+}
+export const sendLikes = like => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(like)
+    }
 
-//     return fetch(`${API}/likes`, fetchOptions)
-//         .then(response => response.json())
-//         .then(() => {
-//             appContainer.dispatchEvent(new CustomEvent("stateChanged"))
-//         })
-// }
-// export const sendMessages = message => {
-//     const fetchOptions = {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify(message)
-//     }
+    return fetch(`${API}/likes`, fetchOptions)
+        .then(response => response.json())
+        .then(() => {
+            appContainer.dispatchEvent(new CustomEvent("stateChanged"))
+        })
+}
+export const sendMessages = message => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(message)
+    }
 
-//     return fetch(`${API}/messages`, fetchOptions)
-//         .then(response => response.json())
-//         .then(() => {
-//             appContainer.dispatchEvent(new CustomEvent("stateChanged"))
-//         })
-// }
-// export const sendUsers = user => {
-//     const fetchOptions = {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify(user)
-//     }
+    return fetch(`${API}/messages`, fetchOptions)
+        .then(response => response.json())
+        .then(() => {
+            appContainer.dispatchEvent(new CustomEvent("stateChanged"))
+        })
+}
+export const sendUsers = user => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(user)
+    }
 
-//     return fetch(`${API}/users`, fetchOptions)
-//         .then(response => response.json())
-//         .then(() => {
-//             appContainer.dispatchEvent(new CustomEvent("stateChanged"))
-//         })
-// }
+    return fetch(`${API}/users`, fetchOptions)
+        .then(response => response.json())
+        .then(() => {
+            appContainer.dispatchEvent(new CustomEvent("stateChanged"))
+        })
+}
