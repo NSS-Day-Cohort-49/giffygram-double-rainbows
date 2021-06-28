@@ -64,3 +64,8 @@
 #directMessageIcon {
     cursor: pointer;
 }
+
+.top_bar{
+    display: flex;
+    margin: 1rem;
+}
