@@ -4,3 +4,29 @@
     flex-direction: column;
     justify-content: center;
 }
+
+
+.new_post_form{
+    /* padding: 7rem 0; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.button_wrapper{
+    display: flex;
+    margin:.5rem;
+}
+
+.submit_new_post_wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+.submit_new_post_button{
+    margin:.25rem;
+}
+
+.cancel_new_post_button{
+    margin: .25rem;
+}
