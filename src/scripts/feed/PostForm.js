@@ -1,5 +1,6 @@
 
 import { getUsers, sendPost } from "../data/provider.js";
+import { postFeed } from "./PostList.js";
 
 
 
@@ -24,7 +25,7 @@ export const newPostForm = () => {
 			<label for="post_description_label">Description</label>
 		</div>
 		<div>
-			<input class="input_post_description" type="text" id="input_post_description">
+			<input class="input_post_description" type="textarea" rows="4" cols="50" id="input_post_description">
 		</div>
 		<div class="button_wrapper">
 			<div> <button class="submit_new_post_button" id="submit_new_post_button">Submit</button></div>
@@ -36,6 +37,9 @@ export const newPostForm = () => {
 };
 
 const applicationElement = document.querySelector(".giffygram")
+
+
+// Add validation to the fields to make sure that the input a valid input 
 
 applicationElement.addEventListener("click", (event)=>{
 	if(event.target.id === "submit_new_post_button"){
@@ -52,5 +56,14 @@ applicationElement.addEventListener("click", (event)=>{
       			timeStamp: Date.now()
 		}
 		sendPost(sendToAPI)
+	}
+})
+
+
+
+
+applicationElement.addEventListener("click", (event)=>{
+	if(event.target.id === "cancel_new_post_button"){
+		applicationElement.innerHTML=postFeed()
 	}
 })

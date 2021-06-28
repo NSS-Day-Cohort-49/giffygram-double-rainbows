@@ -30,3 +30,15 @@
 .cancel_new_post_button{
     margin: .25rem;
 }
+
+.post_wrapper{
+    margin: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.post_gif{
+    border: solid black 3px;
+    
+}
