@@ -6,19 +6,13 @@ const applicationElement = document.querySelector(".giffygram")
 export const postFeed = ()=> {
 	const currentPost = getPosts()
 	const usersName = getUsers()
-	let html = `<button id="to_new_post_page_button"> Create New Post </button> <section class="post_feed_wrapper">`
-	currentPost.map((post)=>{ 
-	const postName = usersName.find((user) => {
-		if (user.id === post.userId){
-			return user.name
-		}
-	})
-	
 	const sortedPost = currentPost.sort((a,b)=> {return b.timeStamp-a.timeStamp})
 	let html = `<button id="to_new_post_page_button"> Create New Post </button> <section class="post_feed_wrapper">`
-	sortedPost.map((post)=>{ 
-
-
+	sortedPost.map((post)=>{
+		const postName = usersName.find((user) => {
+			if (user.id === post.userId){
+				return user.name
+			}}) 
 		return html += `
 			<div class="post_wrapper">
 			<h3> ${post.title}</h3>
@@ -30,8 +24,7 @@ export const postFeed = ()=> {
 	}).join("")
 	html += `</section>`
 	return html
-	
-}
+	}
 
 
 applicationElement.addEventListener("click", (event)=>{
