@@ -14,6 +14,11 @@ export const postFeed = ()=> {
 		}
 	})
 	
+	const sortedPost = currentPost.sort((a,b)=> {return b.timeStamp-a.timeStamp})
+	let html = `<button id="to_new_post_page_button"> Create New Post </button> <section class="post_feed_wrapper">`
+	sortedPost.map((post)=>{ 
+
+
 		return html += `
 			<div class="post_wrapper">
 			<h3> ${post.title}</h3>
