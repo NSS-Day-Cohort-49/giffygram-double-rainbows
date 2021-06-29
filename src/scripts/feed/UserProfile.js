@@ -3,10 +3,11 @@ import { getPosts, getUsers } from "../data/provider.js";
 export const userProfile = (targetUserId) => {
   const users = getUsers();
   const posts = getPosts();
+  const sortedPost = posts.sort((a,b)=> {return b.timeStamp - a.timeStamp})
   for (const user of users) {
     let html = `<button id="to_new_post_page_button"> Create New Post </button> <section class="post_feed_wrapper">`;
     if (targetUserId === user.id) {
-      const filteredPost = posts.filter((userPost) => {
+      const filteredPost = sortedPost.filter((userPost) => {
         return userPost.userId === user.id;
       });
       filteredPost
@@ -27,13 +28,4 @@ export const userProfile = (targetUserId) => {
   }
 };
 
-// const applicationElement = document.querySelector(".giffygram")
-// applicationElement.addEventListener("click", (event)=>{
-// 	if(event.target.id.startsWith("targetUser")){
-// 		const [,targetUser] = event.target.id.split("--")
-// 		targetUserId = parseInt(targetUser)
-// 		userProfile(targetUserId)
-		
-// 	}
 
-// })
