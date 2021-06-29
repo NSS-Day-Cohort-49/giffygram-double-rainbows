@@ -4,6 +4,7 @@ import { userProfile } from "./UserProfile.js"
 const applicationElement = document.querySelector(".giffygram")
 
 export const postFeed = ()=> {
+	
 	const currentPost = getPosts()
 	const sortedPost = currentPost.sort((a,b)=> {return b.timeStamp-a.timeStamp})
 	let html = `<button id="to_new_post_page_button"> Create New Post </button> <section class="post_feed_wrapper">`
@@ -16,7 +17,7 @@ export const postFeed = ()=> {
 			<img class="post_gif" src="${post.imageURL}" alt="${post.title}"> 
 			<div> ${post.description} </div>
 			<div> Submitted by <div class="userNameLink" id="targetUser--${post.userId}"> ${post.userId}</div> at
-			 ${post.timeStamp} </div>
+			 ${post.timeStamp} </div> 
 			 </div>
 		`
 	}).join("")
@@ -29,6 +30,7 @@ export const postFeed = ()=> {
 applicationElement.addEventListener("click", (event)=>{
 	if(event.target.id === "to_new_post_page_button"){
 		applicationElement.innerHTML=newPostForm()
+		
 	}
 })
 
@@ -37,6 +39,7 @@ applicationElement.addEventListener("click", (event)=>{
 		const [,targetUser] = event.target.id.split("--")
 		const targetUserId = parseInt(targetUser)
 		applicationElement.innerHTML = userProfile(targetUserId)
+		
 		
 	}
 

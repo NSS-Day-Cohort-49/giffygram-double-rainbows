@@ -48,7 +48,7 @@ export const getLikes = () => {
 }
 
 
-export const sendPost = post => {
+export const sendPost = (post) => {
     const fetchOptions = {
         method: "POST",
         headers: {

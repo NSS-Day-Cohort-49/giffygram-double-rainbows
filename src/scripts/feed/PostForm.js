@@ -56,6 +56,8 @@ applicationElement.addEventListener("click", (event)=>{
       			timeStamp: Date.now()
 		}
 		sendPost(sendToAPI)
+		document.querySelector(".giffygram").dispatchEvent(new CustomEvent("stateChanged"))
+
 	}
 })
 
@@ -65,5 +67,7 @@ applicationElement.addEventListener("click", (event)=>{
 applicationElement.addEventListener("click", (event)=>{
 	if(event.target.id === "cancel_new_post_button"){
 		applicationElement.innerHTML=postFeed()
+		applicationElement.querySelector(".giffygram").dispatchEvent(new CustomEvent("stateChanged"))
+
 	}
 })

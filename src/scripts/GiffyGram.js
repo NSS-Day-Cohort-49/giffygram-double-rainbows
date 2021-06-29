@@ -12,5 +12,6 @@ const applicationElement = document.querySelector(".giffygram")
 applicationHeader.addEventListener("click", (event)=>{
 	if(event.target.id === "giffygram"){
 		applicationElement.innerHTML=postFeed()
+        applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
 	}
 })
