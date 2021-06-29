@@ -1,5 +1,7 @@
 import { getPosts, getUsers } from "../data/provider.js"
 import { newPostForm } from "./PostForm.js"
+import { userProfile } from "./UserProfile.js"
+const applicationElement = document.querySelector(".giffygram")
 
 export const postFeed = ()=> {
 	const currentPost = getPosts()
@@ -27,10 +29,19 @@ export const postFeed = ()=> {
 	
 }
 
-const applicationElement = document.querySelector(".giffygram")
 
 applicationElement.addEventListener("click", (event)=>{
 	if(event.target.id === "to_new_post_page_button"){
 		applicationElement.innerHTML=newPostForm()
 	}
+})
+
+applicationElement.addEventListener("click", (event)=>{
+	if(event.target.id.startsWith("targetUser")){
+		const [,targetUser] = event.target.id.split("--")
+		const targetUserId = parseInt(targetUser)
+		applicationElement.innerHTML = userProfile(targetUserId)
+		
+	}
+
 })

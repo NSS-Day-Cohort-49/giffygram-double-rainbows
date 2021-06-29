@@ -12,8 +12,8 @@ export const renderApp = () => {
     const user = parseInt(localStorage.getItem("gg_user"))
     fetchExternalData().then(()=>{
     if (user) {
-        applicationElement.innerHTML = postFeed()
         applicationHeader.innerHTML = GiffyGram()
+        applicationElement.innerHTML = postFeed()
     } else {
         applicationElement.innerHTML = LoginForm()
         console.log(applicationState)
