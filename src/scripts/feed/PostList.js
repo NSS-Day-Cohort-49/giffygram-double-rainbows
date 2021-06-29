@@ -16,7 +16,7 @@ export const postFeed = ()=> {
 			<div> Posted by 
 				<div class="userNameLink" id="targetUser--${post.userId}"> ${usersName.find((name) => {
 					if (name.id === post.userId){
-						return name
+						return name.name
 					}})
 				}</div>
 			<div> at ${new Date(post.timeStamp)} </div>
