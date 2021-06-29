@@ -5,8 +5,9 @@ const applicationElement = document.querySelector(".giffygram")
 
 export const postFeed = ()=> {
 	const currentPost = getPosts()
+	const sortedPost = currentPost.sort((a,b)=> {return b.timeStamp-a.timeStamp})
 	let html = `<button id="to_new_post_page_button"> Create New Post </button> <section class="post_feed_wrapper">`
-	currentPost.map((post)=>{ 
+	sortedPost.map((post)=>{ 
 
 
 		return html += `
