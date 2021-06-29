@@ -25,7 +25,7 @@ export const newPostForm = () => {
 			<label for="post_description_label">Description</label>
 		</div>
 		<div>
-			<input class="input_post_description" type="textarea" rows="4" cols="50" id="input_post_description">
+			<textarea class="input_post_description" rows="4" cols="50" id="input_post_description"> </textarea>
 		</div>
 		<div class="button_wrapper">
 			<div> <button class="submit_new_post_button" id="submit_new_post_button">Submit</button></div>
