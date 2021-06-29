@@ -42,3 +42,9 @@
     border: solid black 3px;
     
 }
+
+.star_button{
+    align-self:flex-end;
+    width:25px;
+    height:auto;
+}
