@@ -1,11 +1,8 @@
-
 import { sendPost } from "../data/provider.js";
 import { postFeed } from "./PostList.js";
 
-
-
 export const newPostForm = () => {
-	return `
+  return `
 	<section class="submit_new_post_wrapper"> 
 	<form class="new_post_form">
 		<h1> Submit a new post </h1>
@@ -36,38 +33,37 @@ export const newPostForm = () => {
 	`;
 };
 
-const applicationElement = document.querySelector(".giffygram")
+const applicationElement = document.querySelector(".giffygram");
 
+// Add validation to the fields to make sure that the input a valid input
 
-// Add validation to the fields to make sure that the input a valid input 
+applicationElement.addEventListener("click", (event) => {
+  if (event.target.id === "submit_new_post_button") {
+    const postTitle = document.getElementById("input_post_title").value;
+    const postURL = document.getElementById("input_post_url").value;
+    const postDescription = document.getElementById(
+      "input_post_description"
+    ).value;
 
-applicationElement.addEventListener("click", (event)=>{
-	if(event.target.id === "submit_new_post_button"){
-		const postTitle = document.getElementById("input_post_title").value
-		const postURL = document.getElementById("input_post_url").value
-		const postDescription = document.getElementById("input_post_description").value
-		
+    const sendToAPI = {
+      userId: parseInt(localStorage.getItem("gg_user")),
+      title: postTitle,
+      imageURL: postURL,
+      description: postDescription,
+      timeStamp: Date.now(),
+    };
+    sendPost(sendToAPI);
+    document
+      .querySelector(".giffygram")
+      .dispatchEvent(new CustomEvent("stateChanged"));
+  }
+});
 
-		const sendToAPI = {
-			userId: parseInt(localStorage.getItem("gg_user")),
-      			title: postTitle,
-      			imageURL: postURL,
-      			description: postDescription,
-      			timeStamp: Date.now()
-		}
-		sendPost(sendToAPI)
-		document.querySelector(".giffygram").dispatchEvent(new CustomEvent("stateChanged"))
-
-	}
-})
-
-
-
-
-applicationElement.addEventListener("click", (event)=>{
-	if(event.target.id === "cancel_new_post_button"){
-		applicationElement.innerHTML=postFeed()
-		applicationElement.querySelector(".giffygram").dispatchEvent(new CustomEvent("stateChanged"))
-
-	}
-})
+applicationElement.addEventListener("click", (event) => {
+  if (event.target.id === "cancel_new_post_button") {
+    applicationElement.innerHTML = postFeed();
+    applicationElement
+      .querySelector(".giffygram")
+      .dispatchEvent(new CustomEvent("stateChanged"));
+  }
+});
