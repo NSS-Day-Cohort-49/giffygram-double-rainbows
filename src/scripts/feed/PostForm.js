@@ -1,5 +1,5 @@
 
-import { getUsers, sendPost } from "../data/provider.js";
+import { sendPost } from "../data/provider.js";
 import { postFeed } from "./PostList.js";
 
 
