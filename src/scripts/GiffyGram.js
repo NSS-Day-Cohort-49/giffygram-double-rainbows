@@ -7,14 +7,14 @@ import { newMessageForm } from "./message/MessageForm.js";
 export const GiffyGram = () => {
   // Show main main UI
   return `
-    <section class="top_bar">
+    <section class="navigation">
         <div class="logo_title">
         <img src="./images/pb.png" alt="Giffygram Logo" width="75" height="75" id="giffygram">
          <h1 id="giffygram">Giffygram</h1>
         </div>
         <div class = "nav_buttons">
+        <div class="message_inbox" id="message_inbox"> ${applicationState.messageCounter.totalUnreadMessages} </div>
             <button id="new_message_form">Send DM </button>
-            <button id="message_inbox"> ${applicationState.messageCounter.totalUnreadMessages} New DMs </button>
             <button id="to_new_post_page_button"> Create New Post </button> 
             </div>
         </section>
