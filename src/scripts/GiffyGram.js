@@ -1,10 +1,11 @@
 import { postFeed } from "./feed/PostList.js"
+import { messageFeed } from "./friends/DirectMessage.js"
 import { newMessageForm } from "./message/MessageForm.js"
 
 export const GiffyGram = () => {
 
     // Show main main UI
-    return `<section class="top_bar"><img src="./images/pb.png" alt="Giffygram Logo" width="75" height="75" id="giffygram"> <h1 id="giffygram">Giffygram</h1></section> <section><button id="new_message_form"> New Message</button>`
+    return `<section class="top_bar"><img src="./images/pb.png" alt="Giffygram Logo" width="75" height="75" id="giffygram"> <h1 id="giffygram">Giffygram</h1></section> <section><button id="new_message_form"> New Message</button><button id="message_inbox">Messages</button>`
 }
 
 const applicationHeader = document.querySelector(".header")
@@ -24,3 +25,10 @@ applicationHeader.addEventListener("click", (event)=>{
       
 	}
 })
+applicationHeader.addEventListener("click", (event)=>{
+	if(event.target.id === "message_inbox"){
+		applicationElement.innerHTML= messageFeed()
+      
+	}
+})
+
