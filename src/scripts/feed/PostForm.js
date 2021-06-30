@@ -1,5 +1,6 @@
 import { sendPost } from "../data/provider.js";
 import { postFeed } from "./PostList.js";
+import { applicationState } from "../data/provider.js";
 
 export const newPostForm = () => {
   return `
@@ -39,6 +40,7 @@ const applicationElement = document.querySelector(".giffygram");
 
 applicationElement.addEventListener("click", (event) => {
   if (event.target.id === "submit_new_post_button") {
+    applicationState.currentPage.page = 0
     const postTitle = document.getElementById("input_post_title").value;
     const postURL = document.getElementById("input_post_url").value;
     const postDescription = document.getElementById(
@@ -53,17 +55,13 @@ applicationElement.addEventListener("click", (event) => {
       timeStamp: Date.now(),
     };
     sendPost(sendToAPI);
-    document
-      .querySelector(".giffygram")
-      .dispatchEvent(new CustomEvent("stateChanged"));
+  
   }
 });
 
 applicationElement.addEventListener("click", (event) => {
   if (event.target.id === "cancel_new_post_button") {
     applicationElement.innerHTML = postFeed();
-    applicationElement
-      .querySelector(".giffygram")
-      .dispatchEvent(new CustomEvent("stateChanged"));
+    
   }
 });
