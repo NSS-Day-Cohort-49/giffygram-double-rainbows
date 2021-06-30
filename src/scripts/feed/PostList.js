@@ -19,21 +19,15 @@ export const postFeed = ()=> {
 			<h3> ${post.title}</h3>
 			<img class="post_gif" src="${post.imageURL}" alt="${post.title}"> 
 			<div> ${post.description} </div>
-			<div> Posted by <div class="userNameLink" id="targetUser--${post.userId}"> ${postName.name}</div>
+			<div class="userNameLink" id="targetUser--${post.userId}"> Posted by: ${postName.name}</div>
 			<div id="output"> at ${new Date(post.timeStamp)} </div>
+			</div>
 		`
 	}).join("")
 	html += `</section>`
 	return html
 	}
 
-
-// applicationElement.addEventListener("click", (event)=>{
-// 	if(event.target.id === "to_new_post_page_button"){
-// 		applicationElement.innerHTML=newPostForm()
-		
-// 	}
-// })
 
 applicationElement.addEventListener("click", (event)=>{
 	if(event.target.id.startsWith("targetUser")){

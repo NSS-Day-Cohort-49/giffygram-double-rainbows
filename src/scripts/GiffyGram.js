@@ -9,14 +9,15 @@ export const GiffyGram = () => {
   return `
     <section class="navigation">
         <div class="logo_title">
-        <img src="./images/pb.png" alt="Giffygram Logo" width="75" height="75" id="giffygram">
-         <h1 id="giffygram">Giffygram</h1>
+            <img src="./images/pb.png" alt="Giffygram Logo" width="75" height="75" id="giffygram">
+            <h1 id="giffygram">Giffygram</h1>
         </div>
         <div class = "nav_buttons">
-        <div class="message_inbox" id="message_inbox"> ${applicationState.messageCounter.totalUnreadMessages} </div>
+            <div class="message_inbox" id="message_inbox"> ${applicationState.messageCounter.totalUnreadMessages} </div>
             <button id="new_message_form">Send DM </button>
             <button id="to_new_post_page_button"> Create New Post </button> 
-            </div>
+        </div>
+        
         </section>
         `;
 };

@@ -29,7 +29,7 @@ export const messageFeed = () => {
 	console.log(applicationState)
 	
 	let html = `<section class="messages"><h1 class="dm_header"> Direct Messages </h1><container class="messages_toggle">
-	<button id="unread_messages"> New Messages</button><button id="read_messages">Read Messages</button>
+	<div id="unread_messages"> New Messages</div><button id="read_messages">Read Messages</button>
 	</container><div>`
 
 	html += sortedMessages.map((message)=>{ const senderObj = users.find(user => user.id === message.userId) 
@@ -51,7 +51,7 @@ export const readMessageFeed = () => {
 	console.log(applicationState)
 	
 	let html = `<section class="messages"><h1 class="dm_header"> Direct Messages </h1><container class="messages_toggle">
-	<button id="unread_messages"> New Messages</button><button id="read_messages">Read Messages</button>
+	<button id="unread_messages"> New Messages</button><div id="read_messages">Read Messages</div>
 	</container><div>`
 
 	html += sortedMessages.map((message)=>{ const senderObj = users.find(user => user.id === message.userId) 
@@ -97,7 +97,8 @@ applicationElement.addEventListener("click", (event) => {
 applicationElement.addEventListener("click", (event) => {
 	
 	if(event.target.id === "unread_messages"){
-		applicationState.currentPage.page = 1
+	
+			applicationState.currentPage.page = 1
 		console.log(applicationState.currentPage.page)
 		applicationElement.innerHTML = messageFeed()
 		
@@ -106,6 +107,7 @@ applicationElement.addEventListener("click", (event) => {
 applicationElement.addEventListener("click", (event) => {
 	
 	if(event.target.id === "read_messages"){
+		
 		applicationState.currentPage.page = 2
 		console.log(applicationState.currentPage.page)
 		applicationElement.innerHTML = readMessageFeed()
