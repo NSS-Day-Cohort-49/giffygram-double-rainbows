@@ -32,7 +32,7 @@
 }
 
 .messages {
-    padding: 7rem 0;
+    padding: 1rem 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -43,11 +43,19 @@
     padding: 2rem;
     border-radius: 0.5rem;
     box-shadow: 0.25rem 0.25rem 0.5rem rgb(143, 143, 143);
-    margin: 0 25%;
+    margin: 15px 25%;
     flex-basis: 50%;
 }
 
 .message__author {
     font-weight: bold;
     margin-bottom: 1rem;
+}
+
+.is_read_button{
+    margin: 1rem;
+}
+
+.dm_header{
+    text-align: center;
 }
