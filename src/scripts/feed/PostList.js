@@ -1,5 +1,5 @@
 import { getPosts, getUsers } from "../data/provider.js"
-import { newPostForm } from "./PostForm.js"
+// import { newPostForm } from "./PostForm.js"
 import { userProfile } from "./UserProfile.js"
 const applicationElement = document.querySelector(".giffygram")
 
@@ -8,7 +8,7 @@ export const postFeed = ()=> {
 	const currentPost = getPosts()
 	const usersName = getUsers()
 	const sortedPost = currentPost.sort((a,b)=> {return b.timeStamp-a.timeStamp})
-	let html = `<button id="to_new_post_page_button"> Create New Post </button> <section class="post_feed_wrapper">`
+	let html = `<section class="post_feed_wrapper">`
 	sortedPost.map((post)=>{
 		const postName = usersName.find((user) => {
 			if (user.id === post.userId){
@@ -28,12 +28,12 @@ export const postFeed = ()=> {
 	}
 
 
-applicationElement.addEventListener("click", (event)=>{
-	if(event.target.id === "to_new_post_page_button"){
-		applicationElement.innerHTML=newPostForm()
+// applicationElement.addEventListener("click", (event)=>{
+// 	if(event.target.id === "to_new_post_page_button"){
+// 		applicationElement.innerHTML=newPostForm()
 		
-	}
-})
+// 	}
+// })
 
 applicationElement.addEventListener("click", (event)=>{
 	if(event.target.id.startsWith("targetUser")){

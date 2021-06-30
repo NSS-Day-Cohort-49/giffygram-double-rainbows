@@ -52,10 +52,19 @@
     margin-bottom: 1rem;
 }
 
-.is_read_button{
+.is_read_button, .make_unread_button{
     margin: 1rem;
 }
 
 .dm_header{
     text-align: center;
+}
+
+.messages_toggle{
+    display: flex;
+    justify-content: center;
+}
+
+#read_messages, #unread_messages {
+    margin: 1rem;
 }

@@ -1,4 +1,4 @@
-import { fetchExternalData, getUsers, sendMessages } from "../data/provider.js";
+import { applicationState, fetchExternalData, getUsers, sendMessages } from "../data/provider.js";
 import { postFeed } from "../feed/PostList.js";
 
 const applicationElement = document.querySelector(".giffygram")
@@ -47,10 +47,11 @@ export const newMessageForm =()=> {
 	
 	applicationElement.addEventListener("click", (event) => {
 		if(event.target.id === "submit_new_message_button"){
+		applicationState.currentPage.page = 0
+		console.log(applicationState.currentPage.page)
 		const currentUserId = parseInt(localStorage.getItem("gg_user"))
 		const recipientId = document.getElementById("users").value
 		const message = document.getElementById("input_message").value
-		
 		const sendToAPI= {
 		
 		userId: currentUserId,
