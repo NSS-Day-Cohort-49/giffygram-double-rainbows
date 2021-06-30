@@ -1,17 +1,7 @@
 import { getMessages, getUsers, sendIsReadBoolean,applicationState } from "../data/provider.js"
 
-
-export const messageCounter = ()=> {
-	const messages = getMessages()
-	const currentUser = parseInt(localStorage.getItem("gg_user"))	
-	const filteredMessages = messages.filter((message) => { return message.recipientId === currentUser})
-	const unreadMessages = filteredMessages.filter((message) => { return message.isRead === false})
-	const readMessages = filteredMessages.filter((message) => { return message.isRead === true})
-	applicationState.messageCounter.totalReadMessages = readMessages.length
-	applicationState.messageCounter.totalUnreadMessages = unreadMessages.length
-}
-
-
+let totalUnreadMessages = 0
+let totalReadMessages =0
 
 
 export const messageFeed = () => {
@@ -22,9 +12,7 @@ export const messageFeed = () => {
 
 	const filteredMessages = messages.filter((message) => { return message.recipientId === currentUser})
 	const unreadMessages = filteredMessages.filter((message) => { return message.isRead === false})
-	const readMessages = filteredMessages.filter((message) => { return message.isRead === true})
 	const sortedMessages = unreadMessages.sort((a,b)=> {return b.id-a.id})
-	applicationState.messageCounter.totalReadMessages = readMessages.length
 	applicationState.messageCounter.totalUnreadMessages = unreadMessages.length
 	console.log(applicationState)
 	
@@ -44,10 +32,8 @@ export const readMessageFeed = () => {
 
 	const filteredMessages = messages.filter((message) => { return message.recipientId === currentUser})
 	const readMessages = filteredMessages.filter((message) => { return message.isRead === true})
-	const unreadMessages = filteredMessages.filter((message) => { return message.isRead === false})
 	const sortedMessages = readMessages.sort((a,b)=> {return b.id-a.id})
 	applicationState.messageCounter.totalReadMessages = readMessages.length
-	applicationState.messageCounter.totalUnreadMessages = unreadMessages.length
 	console.log(applicationState)
 	
 	let html = `<section class="messages"><h1 class="dm_header"> Direct Messages </h1><container class="messages_toggle">
