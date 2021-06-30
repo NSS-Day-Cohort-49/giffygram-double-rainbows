@@ -1,3 +1,5 @@
+import { messageFeed } from "../friends/DirectMessage.js"
+
 const API = "http://localhost:3000"
 const appContainer = document.querySelector(".giffygram")
 
@@ -108,3 +110,21 @@ export const sendUsers = user => {
             appContainer.dispatchEvent(new CustomEvent("stateChanged"))
         })
 }
+
+export const sendIsReadBoolean = (boolean,id) => {
+	const fetchOptions = {
+	  method: "PATCH",
+	  headers: {
+	    "Content-Type": "application/json",
+	  },
+	  body: JSON.stringify(boolean),
+	};
+      
+	return fetch(`${API}/messages/${id}`, fetchOptions)
+	  .then((response) => response.json())
+	  .then(() => {
+	    appContainer.dispatchEvent(new CustomEvent("stateChanged"));
+	  }).then(()=> {
+          messageFeed()
+        });
+      };
