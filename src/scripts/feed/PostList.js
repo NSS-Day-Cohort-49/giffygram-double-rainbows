@@ -1,4 +1,4 @@
-import { getPosts, getUsers } from "../data/provider.js"
+import { getPosts, getUsers, deletePost } from "../data/provider.js"
 import { newPostForm } from "./PostForm.js"
 import { userProfile } from "./UserProfile.js"
 const applicationElement = document.querySelector(".giffygram")
@@ -21,6 +21,7 @@ export const postFeed = ()=> {
 			<div> ${post.description} </div>
 			<div> Posted by <div class="userNameLink" id="targetUser--${post.userId}"> ${postName.name}</div>
 			<div id="output"> at ${new Date(post.timeStamp)} </div>
+			<button class="postDelete" id="targetTitle--${post.title}" name="postDelete">DeleteMyPost</button>
 		`
 	}).join("")
 	html += `</section>`
@@ -45,3 +46,18 @@ applicationElement.addEventListener("click", (event)=>{
 	}
 
 })
+
+
+applicationElement.addEventListener("click", (event) => {
+    if (event.target.id.startsWith("targetTitle")) {
+        const [,targetTitle] = event.target.id.split("--")
+        deletePost(targetTitle)
+    }
+})
+
+
+// applicationElement.addEventListener("click", (event) => {
+// 	if (event.target.id.startsWith("targetUser")) {
+// 	deletePost(event.target.id);
+// 	}
+// });
