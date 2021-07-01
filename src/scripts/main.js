@@ -1,9 +1,9 @@
-import { GiffyGram } from "./GiffyGram.js"
+import { GiffyGram, GiffyGramLogIn } from "./GiffyGram.js"
 import {LoginForm} from "./auth/Login.js"
 import { applicationState, fetchExternalData } from "./data/provider.js"
 // import { newPostForm } from "./feed/PostForm.js"
 import { postFeed } from "./feed/PostList.js"
-import { footer } from "./nav/Footer.js"
+import { footer, footerLogIn } from "./nav/Footer.js"
 import { messageCounter, messageFeed, readMessageFeed } from "./friends/DirectMessage.js"
 import { newMessageForm } from "./message/MessageForm.js"
 import { newPostForm } from "./feed/PostForm.js"
@@ -38,6 +38,8 @@ export const renderApp = () => {
 
 
     } else {
+        applicationHeader.innerHTML = GiffyGramLogIn()
+        applicationFooter.innerHTML = footerLogIn()
         applicationElement.innerHTML = LoginForm()
         // console.log(applicationState)
     }
@@ -48,6 +50,9 @@ export const renderApp = () => {
 renderApp()
 
 applicationElement.addEventListener("stateChanged", (customEvent) => {
+    renderApp();
+  });
+applicationHeader.addEventListener("stateChanged", (customEvent) => {
     renderApp();
   });
 

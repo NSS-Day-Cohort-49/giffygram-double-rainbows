@@ -53,7 +53,12 @@ header {
 }
 
 .loginForm {
-    margin: 0 25%;
+   
+    background-color: #181717c9;
+       margin: 10% 0;
+       padding: 25%;
+       display: flex;
+       flex-direction: column;
 }
 
 #logo {
@@ -68,4 +73,16 @@ header {
 
 #giffygram{
     text-shadow: rgb(87, 81, 81) .25rem .15rem;
+}
+
+.signUpForm{
+    background-color: #181717c9;
+        margin: 10% 0;
+        padding: 25%;
+        display: flex;
+        flex-direction: column;
+}
+
+.login_header{
+    text-align: center;
 }

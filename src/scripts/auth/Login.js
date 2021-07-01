@@ -1,6 +1,7 @@
 import { applicationState, getUsers } from "../data/provider.js"
+import {newUserSignUpForm} from "./Register.js"
 
-
+const appContainer = document.querySelector(".giffygram")
 
 document.addEventListener("click", (event)=> {
     if (event.target.id === "loginButton") {
@@ -29,6 +30,7 @@ export const LoginForm = () => {
     return `
         <div class="loginForm">
             <form>
+            <h2 class="login_header"> Welcome to Giffygram </h2>
                 <fieldset>
                     <label for="email">Email:</label>
                     <input type="text" name="email" autofocus placeholder="Email address" />
@@ -39,6 +41,13 @@ export const LoginForm = () => {
                 </fieldset>
             </form>
             <button id="loginButton">Login</button>
+            <button id="signUpButton"> Sign Up </button>
         </div>
     `
 }
+
+document.addEventListener("click", (event) => {
+    if(event.target.id === "signUpButton"){
+        appContainer.innerHTML = newUserSignUpForm()
+    }
+})

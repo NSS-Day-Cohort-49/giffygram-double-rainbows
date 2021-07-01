@@ -23,13 +23,18 @@
     display: flex;
     flex-basis: 73%;
     justify-content: flex-end;
+    margin: 1rem 1rem 0 0;
       
 }
 
 .checkbox{
-    margin: 0 .25rem;
+    margin: .1rem .5rem 0 0;
     text-align: center;
   
+}
+.checkbox_box{
+    margin: .30rem .5rem 0 0;
+    text-align: center;
 }
 
 .filter_users_button{

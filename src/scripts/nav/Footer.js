@@ -14,8 +14,16 @@ export const footer = () => {
 		return `
 		<option class="filtered_post_options" value="users--${user.id}" id="users--${user.id}">${user.name} ${user.surname}</option>`}).join("")}
 		</select>
-		<div class="checkbox_wrapper"><input class="checkbox" type="checkbox" id="favorite_filter" name="favorite_filter" value="favorite">
+		<div class="checkbox_wrapper"><input class="checkbox_box" type="checkbox" id="favorite_filter" name="favorite_filter" value="favorite">
 		<label class="checkbox" for="favorite_filter">Favorites</label></div>
+	</div>`
+}
+export const footerLogIn = () => {
+	
+	
+	return `
+	<div class="footer"> 
+	
 	</div>`
 }
 
