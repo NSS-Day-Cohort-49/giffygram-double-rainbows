@@ -40,12 +40,6 @@ export const fetchExternalData = () => {
         applicationState.likes = externalData[3]
     
     })
-    .then((externalData) => {
-      applicationState.users = externalData[0];
-      applicationState.messages = externalData[1];
-      applicationState.posts = externalData[2];
-      applicationState.likes = externalData[3];
-    });
 };
 
 export const getMessages = () => {
@@ -116,22 +110,6 @@ export const sendUsers = (user) => {
   };
 
   return fetch(`${API}/users`, fetchOptions)
-    .then((response) => response.json())
-    .then(() => {
-      appContainer.dispatchEvent(new CustomEvent("stateChanged"));
-    });
-};
-
-export const sendIsReadBoolean = (boolean, id) => {
-  const fetchOptions = {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(boolean),
-  };
-
-  return fetch(`${API}/messages/${id}`, fetchOptions)
     .then((response) => response.json())
     .then(() => {
       appContainer.dispatchEvent(new CustomEvent("stateChanged"));

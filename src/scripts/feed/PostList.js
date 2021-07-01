@@ -45,7 +45,7 @@ export const postFeed = ()=> {
 			<div> ${post.description} </div>
 			<div id="output"> at ${new Date(post.timeStamp)} </div>
 			<div class="favorite_wrapper">
-			<div class="favorite_${isLiked}" value= "favorite_${isLiked}" id="favorite_button--${post.id}">"  "
+			<div class="favorite_${isLiked}" value= "favorite_${isLiked}" id="favorite_button--${post.id}--${isLiked}">"  "
 			</div>
 			</div>
 			${deleteButton}
@@ -70,9 +70,10 @@ applicationElement.addEventListener("click", (event)=>{
 
 applicationElement.addEventListener("click", (event)=>{
 	if(event.target.id.startsWith("favorite_button")){
-		 if(event.target.value === "favorite_false") {
-		const [,targetpostId] = event.target.id.split("--")
+		const [,targetpostId, boolean] = event.target.id.split("--")
 		const targetpostIdAsInt = parseInt(targetpostId)
+		 if(boolean === "false") {
+		
 		
 		const sendToAPI = {
 			userId: parseInt(localStorage.getItem("gg_user")),
@@ -94,4 +95,3 @@ applicationElement.addEventListener("click", (event) => {
         deletePost(targetTitle)
     }
 })
-
