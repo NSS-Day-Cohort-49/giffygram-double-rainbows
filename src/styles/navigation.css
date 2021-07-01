@@ -77,7 +77,7 @@
     background-color: rgba(255, 255, 33, 0.913);
     color: black;
     padding: .5rem;
-    margin: 1.75rem 1rem ;
+    margin: 2.25rem .25rem .5rem .25rem ;
     box-shadow: rgb(87, 81, 81) .10rem .15rem;
 }
 
@@ -120,7 +120,7 @@
 
 #to_new_post_page_button,
 #new_message_form{
-    margin:2rem .5rem 2rem .5rem;
+    margin:2.5rem .25rem 1rem .25rem;
     padding: .35rem;
     border-radius: 3rem;
     box-shadow: rgb(87, 81, 81) .05rem .1rem;
