@@ -75,6 +75,7 @@ export const readMessageFeed = () => {
 
 	html += sortedMessages.map((message)=>{ 
 		const senderObj = users.find(user => user.id === message.userId) 
+		
 
 		return `
 		<div class="message">

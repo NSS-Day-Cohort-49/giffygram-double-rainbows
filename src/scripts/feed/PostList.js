@@ -25,19 +25,21 @@ export const postFeed = ()=> {
 
 		return html += `
 			<div class="post_wrapper">
-			<div class="post_title_wrapper">
-			<div class="bobble_head_wrapper">
-			<img class="profile_pic" src=".${postName.profile_pic}">
-			<div class="userNameLink" id="targetUser--${post.userId}">${postName.name} ${postName.surname}</div>
-			</div>
-			<h2 class="post_title"> ${post.title}</h2>
-			</div> 
-			<img class="post_gif" src="${post.imageURL}" alt="${post.title}"> 
-			<div class="description_wrapper">
-			<div> ${post.description} </div>
-			<div id="output"> at ${new Date(post.timeStamp)} </div>
-			${deleteButton}
-			</div>
+				<div class="post_title_wrapper">
+					<div class="bobble_head_wrapper">
+						<img class="profile_pic" src=".${postName.profile_pic}">
+						<div class="userNameLink" id="targetUser--${post.userId}">${postName.name} ${postName.surname}</div>
+					</div>
+					<h2 class="post_title"> ${post.title}</h2>
+				</div> 
+				<img class="post_gif" src="${post.imageURL}" alt="${post.title}"> 
+				<div class="description_wrapper">
+					<div> ${post.description} </div>
+					<div id="output"> at ${new Date(post.timeStamp)} </div>
+					
+						${deleteButton}
+					
+				</div>
 			</div>
 		`
 	}).join("")

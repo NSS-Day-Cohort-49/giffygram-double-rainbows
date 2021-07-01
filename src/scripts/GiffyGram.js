@@ -14,9 +14,9 @@ export const GiffyGram = () => {
             <h1 id="giffygram">Giffygram</h1>
         </div>
         <div class = "nav_buttons">
-            <div class="message_inbox" id="message_inbox"> ${applicationState.messageCounter.totalUnreadMessages} </div>
-            <button id="new_message_form">Send DM </button>
-            <button id="to_new_post_page_button"> Create New Post </button> 
+        <button id="new_message_form">Send DM </button>
+        <button id="to_new_post_page_button"> Create New Post </button> 
+        <div class="message_inbox" id="message_inbox"> ${applicationState.messageCounter.totalUnreadMessages} </div>
             <img class="profile_pic_top" src="${profilePic}">
         </div>
         
