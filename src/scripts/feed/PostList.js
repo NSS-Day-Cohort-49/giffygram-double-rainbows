@@ -57,7 +57,7 @@ applicationElement.addEventListener("click", (event)=>{
 
 applicationElement.addEventListener("click", (event)=>{
 	if(event.target.id.startsWith("favorite_button")){
-		// if(event.target.id.startsWith){
+		// if()
 		const [,targetpostId] = event.target.id.split("--")
 		const targetpostIdAsInt = parseInt(targetpostId)
 		
@@ -79,12 +79,4 @@ applicationElement.addEventListener("click", (event)=>{
 		// }
 })
 
-// export const deleteLike = (id) => {
-// 	return fetch(`${API}/likes/${id}`, { method: "DELETE" })
-// 		.then(
-// 			() => {
-// 				mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
-// 			}
-// 		)
-//   }
   
