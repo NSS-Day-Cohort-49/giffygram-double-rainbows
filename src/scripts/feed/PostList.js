@@ -12,15 +12,22 @@ export const postFeed = ()=> {
 	sortedPost.map((post)=>{
 		const postName = usersName.find((user) => {
 			if (user.id === post.userId){
-				return user.name
+				return user
 			}}) 
 		return html += `
 			<div class="post_wrapper">
-			<h3> ${post.title}</h3>
+			<div class="post_title_wrapper">
+			<div class="bobble_head_wrapper">
+			<img class="profile_pic" src=".${postName.profile_pic}">
+			<div class="userNameLink" id="targetUser--${post.userId}">${postName.name} ${postName.surname}</div>
+			</div>
+			<h2 class="post_title"> ${post.title}</h2>
+			</div> 
 			<img class="post_gif" src="${post.imageURL}" alt="${post.title}"> 
+			<div class="description_wrapper">
 			<div> ${post.description} </div>
-			<div class="userNameLink" id="targetUser--${post.userId}"> Posted by: ${postName.name}</div>
 			<div id="output"> at ${new Date(post.timeStamp)} </div>
+			</div>
 			</div>
 		`
 	}).join("")

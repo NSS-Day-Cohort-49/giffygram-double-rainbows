@@ -33,7 +33,7 @@ export const messageFeed = () => {
 	</container><div>`
 
 	html += sortedMessages.map((message)=>{ const senderObj = users.find(user => user.id === message.userId) 
-		return `<div class="message"><h3>From: ${senderObj.name} ${senderObj.surname}</h3> <div ><div id="message--${message.id}"> ${message.message}</div><button class="is_read_button" id=is_read--${message.id}> Mark as Read</button></div></div>`}).join("")
+		return `<div class="message"><img class="profile_pic" src=".${senderObj.profile_pic}"><h3>From: ${senderObj.name} ${senderObj.surname}</h3> <div ><div id="message--${message.id}"> ${message.message}</div><button class="is_read_button" id=is_read--${message.id}> Mark as Read</button></div></div>`}).join("")
 	html += `</section>`
 	return html
 }
@@ -54,8 +54,10 @@ export const readMessageFeed = () => {
 	<button id="unread_messages"> New Messages</button><div id="read_messages">Read Messages</div>
 	</container><div>`
 
-	html += sortedMessages.map((message)=>{ const senderObj = users.find(user => user.id === message.userId) 
-		return `<div class="message"><h3>From: ${senderObj.name} ${senderObj.surname}</h3> <div ><div id="message--${message.id}"> ${message.message}</div><button class="make_unread_button" id=make_unread--${message.id}> Mark as Unread</button></div></div>`}).join("")
+	html += sortedMessages.map((message)=>{ 
+		const senderObj = users.find(user => user.id === message.userId) 
+
+		return `<div class="message"><img class="profile_pic" src=".${senderObj.profile_pic}"><h3>From: ${senderObj.name} ${senderObj.surname}</h3> <div ><div id="message--${message.id}"> ${message.message}</div><button class="make_unread_button" id=make_unread--${message.id}> Mark as Unread</button></div></div>`}).join("")
 	html += `</section>`
 	return html
 }

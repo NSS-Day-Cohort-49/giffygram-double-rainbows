@@ -16,6 +16,7 @@ export const GiffyGram = () => {
             <div class="message_inbox" id="message_inbox"> ${applicationState.messageCounter.totalUnreadMessages} </div>
             <button id="new_message_form">Send DM </button>
             <button id="to_new_post_page_button"> Create New Post </button> 
+            <img class="profile_pic" src="${applicationState.currentUser.profile_pic}">
         </div>
         
         </section>

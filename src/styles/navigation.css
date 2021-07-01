@@ -2,15 +2,17 @@
     display: flex;
     flex-wrap: nowrap;
     justify-content: start;
-    border-bottom: 1px solid lightblue;
+    border-bottom: 1px solid rgb(61, 73, 77);
     padding: 0.5em 0 0.5em 1em;
     margin-bottom: 2em;
     position: fixed;
     z-index: 11;
     top: 0;
     width: 100%;
-    background-color: whitesmoke;
+    background-color: black;
+    color: whitesmoke;
     margin: auto;
+    box-shadow: .1rem .20rem rgba(46, 45, 45, 0.495);
 }
 
 .navigation__item {
@@ -72,7 +74,7 @@
     height: 25px;
     width: 25px;
     border-radius: 10rem ;
-    background-color: rgba(255, 255, 33, 0.687);
+    background-color: rgba(255, 255, 33, 0.913);
     color: black;
 }
 
@@ -82,9 +84,9 @@
 
 .nav_buttons{
     display: flex;
-    flex-basis: 75%;
+    flex-basis: 72%;
     justify-content: flex-end;
-    padding:1.5rem;
+   
 
 }
 
@@ -95,8 +97,24 @@
     margin: 0 .25rem ; 
 }
 .message_inbox{
-    margin: 0 .25rem ;
+    margin: 1.4rem 1rem ;
+    box-shadow: rgb(87, 81, 81) .10rem .15rem;
   
 }
 
+.profile_pic{
+    height: auto;
+    width: 50px;
+    margin:  .35rem;
+    border-radius: 2rem;
+    border: rgba(255, 255, 255, 0.57) .15rem solid;
+}
 
+
+#to_new_post_page_button,
+#new_message_form{
+    margin:1rem;
+    padding: .35rem;
+    border-radius: 2rem;
+    box-shadow: rgb(87, 81, 81) .10rem .15rem;
+}

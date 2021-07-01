@@ -72,3 +72,19 @@
     font-size: 2em;
     margin: 1em 0 0.5em 0;
 }
+h3{
+  text-align: center;
+}
+
+.post_title_wrapper{
+    display: flex;
+
+}
+
+.userNameLink{
+    padding-top: 1.25rem;
+}
+
+.description_wrapper{
+    padding: 1.5rem;
+}

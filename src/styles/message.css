@@ -39,13 +39,25 @@
 }
 
 .message {
-    border: 1px dotted lightblue;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    box-shadow: 0.25rem 0.25rem 0.5rem rgb(143, 143, 143);
-    margin: 15px 25%;
-    flex-basis: 50%;
+    margin:2rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: black;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: .20rem .35rem rgba(38, 36, 36, 0.68);
 }
+    /* border: 1px dotted lightblue;
+    padding: 2rem;
+    border-radius: 2rem;
+    box-shadow: rgb(87, 81, 81) .25rem .15rem;
+    margin: 15px 10%;
+    flex-basis: 75%;
+    background-color: black;
+    color: whitesmoke; */
+/* } */
 
 .message__author {
     font-weight: bold;
@@ -54,6 +66,13 @@
 
 .is_read_button, .make_unread_button{
     margin: 1rem;
+    color: #1a1a1afe;
+    font-family: "Comfortaa", Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 7px;
+    margin: 0;
+    border-radius: 2rem;
 }
 
 .dm_header{
