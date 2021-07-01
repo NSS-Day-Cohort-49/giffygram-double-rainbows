@@ -39,23 +39,68 @@
 }
 
 .message {
-    border: 1px dotted lightblue;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    box-shadow: 0.25rem 0.25rem 0.5rem rgb(143, 143, 143);
-    margin: 15px 25%;
-    flex-basis: 50%;
+    margin:2rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: black;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: .20rem .35rem rgba(38, 36, 36, 0.68);
 }
+    /* border: 1px dotted lightblue;
+    padding: 2rem;
+    border-radius: 2rem;
+    box-shadow: rgb(87, 81, 81) .25rem .15rem;
+    margin: 15px 10%;
+    flex-basis: 75%;
+    background-color: black;
+    color: whitesmoke; */
+/* } */
 
 .message__author {
     font-weight: bold;
     margin-bottom: 1rem;
 }
 
-.is_read_button{
+.is_read_button, .make_unread_button{
     margin: 1rem;
+    color: #1a1a1afe;
+    font-family: "Comfortaa", Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 7px;
+    margin: 1rem 3rem 1rem 35rem ;
+    border-radius: 2rem;
 }
 
 .dm_header{
     text-align: center;
+}
+
+.messages_toggle{
+    display: flex;
+    justify-content: center;
+    margin:1.5rem 0;
+}
+
+#read_messages, #unread_messages {
+    margin: 0rem;
+    background-color: black;
+    color: whitesmoke;
+    padding: 1rem;
+    flex-basis: 50%;
+    text-align: center;
+
+}
+
+.message_wrapper{
+    margin:2rem;
+}
+
+.submit_new_message_wrapper{
+    display: flex;
+    justify-content: center;
+    margin: 10rem 10rem
 }

@@ -1,4 +1,4 @@
-import { getUsers } from "../data/provider.js"
+import { applicationState, getUsers } from "../data/provider.js"
 
 
 
@@ -15,6 +15,7 @@ document.addEventListener("click", (event)=> {
                 foundUser = user
             }
         }
+        applicationState.currentUser.profile_pic = foundUser.profile_pic
 
         if (foundUser !== null) {
             localStorage.setItem("gg_user", foundUser.id)

@@ -9,11 +9,21 @@ export const applicationState = {
     messages:[],
     posts:[],
     likes:[],
-    currentUser: {},
+    currentUser: {
+     
+    },
     feed: {
         chosenUser: null,
         displayFavorites: false,
         displayMessages: false
+    },
+    currentPage:{
+        page:0
+
+    },
+    messageCounter: {
+        totalUnreadMessages:0,
+        totalReadMessages:0
     }
 }
 
@@ -124,7 +134,5 @@ export const sendIsReadBoolean = (boolean,id) => {
 	  .then((response) => response.json())
 	  .then(() => {
 	    appContainer.dispatchEvent(new CustomEvent("stateChanged"));
-	  }).then(()=> {
-          messageFeed()
-        });
+	  })
       };

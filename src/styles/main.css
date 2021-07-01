@@ -9,7 +9,7 @@
 --------------------------------------------------------------*/
 
 body, button, input, select, textarea {
-    color: #404040;
+    color: #1a1a1afe;
     font-family: "Comfortaa", Arial, sans-serif;
     font-size: 1rem;
     line-height: 1.5;
@@ -17,9 +17,14 @@ body, button, input, select, textarea {
     margin: 0;
 }
 
+
 h1, h2, h3, h4, h5, h6 {
     font-family: "Patua One", serif;
     letter-spacing: 2px;
+}
+
+header {
+    display: flex;
 }
 
 
@@ -53,4 +58,14 @@ h1, h2, h3, h4, h5, h6 {
 
 #logo {
     cursor: pointer;
+}
+
+.giffygram{
+    background-color: #181717c9;
+    color: white;
+    text-shadow: rgb(87, 81, 81) .25rem .15rem;
+}
+
+#giffygram{
+    text-shadow: rgb(87, 81, 81) .25rem .15rem;
 }
