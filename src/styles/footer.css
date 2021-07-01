@@ -16,3 +16,17 @@
 .footer__item {
     margin: 0 1rem;
 }
+
+
+.checkbox_wrapper{
+    display: flex;
+    flex-basis: 73%;
+    justify-content: flex-end;
+      
+}
+
+.checkbox{
+    margin: 0 .25rem;
+    text-align: center;
+  
+}

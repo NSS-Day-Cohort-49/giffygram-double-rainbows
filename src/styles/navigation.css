@@ -72,7 +72,7 @@
     height: 25px;
     width: 25px;
     border-radius: 10rem ;
-    background-color: yellow;
+    background-color: rgba(255, 255, 33, 0.687);
     color: black;
 }
 
@@ -82,9 +82,21 @@
 
 .nav_buttons{
     display: flex;
-   align-self: flex-end;
-   align-content: stretch;
+    flex-basis: 75%;
+    justify-content: flex-end;
+    padding:1.5rem;
 
+}
+
+#to_new_post_page_button{
+    margin: 0 .25rem ;
+}
+#new_message_form{
+    margin: 0 .25rem ; 
+}
+.message_inbox{
+    margin: 0 .25rem ;
+  
 }
 
 
