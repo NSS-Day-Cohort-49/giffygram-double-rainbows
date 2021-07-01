@@ -53,6 +53,25 @@
     
 }
 
+.star_button{
+    align-self:flex-end;
+    width:25px;
+    height:auto;
+}
+
+.favorite_false{
+color:rgba(255, 255, 255, 0);
+width:25px;
+height:auto;
+background:url("../images/favorite-star-blank.png");
+}
+
+.favorite_true{
+color:rgba(255, 255, 255, 0);
+width:25px;
+height:auto;
+background:url("../images/favorite-star-yellow.svg");
+}
 .post_title{
     flex-basis: 90%;
     text-align: center;
