@@ -76,11 +76,14 @@
     border-radius: 10rem ;
     background-color: rgba(255, 255, 33, 0.913);
     color: black;
-    padding: 1rem;
+    padding: .5rem;
+    margin: 1.75rem 1rem ;
+    box-shadow: rgb(87, 81, 81) .10rem .15rem;
 }
 
 .logo_title{
     display: flex;
+    margin: 1rem 0 0 0 ;
 }
 
 .nav_buttons{
@@ -97,11 +100,7 @@
 #new_message_form{
     margin: 0 .25rem ; 
 }
-.message_inbox{
-    margin: 1.4rem 1rem ;
-    box-shadow: rgb(87, 81, 81) .10rem .15rem;
-  
-}
+
 
 .profile_pic{
     height: 70px;
@@ -121,8 +120,8 @@
 
 #to_new_post_page_button,
 #new_message_form{
-    margin:1rem;
+    margin:2rem .5rem 2rem .5rem;
     padding: .35rem;
-    border-radius: 2rem;
-    box-shadow: rgb(87, 81, 81) .10rem .15rem;
+    border-radius: 3rem;
+    box-shadow: rgb(87, 81, 81) .05rem .1rem;
 }

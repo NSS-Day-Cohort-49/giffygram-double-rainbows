@@ -36,7 +36,9 @@ export const postFeed = ()=> {
 				<div class="description_wrapper">
 					<div> ${post.description} </div>
 					<div id="output"> at ${new Date(post.timeStamp)} </div>
-				${deleteButton}
+					
+						${deleteButton}
+					
 				</div>
 			</div>
 		`
