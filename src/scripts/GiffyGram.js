@@ -5,7 +5,8 @@ import { messageFeed } from "./friends/DirectMessage.js";
 import { newMessageForm } from "./message/MessageForm.js";
 
 export const GiffyGram = () => {
-  // Show main main UI
+  // Show main main U
+  const profilePic = localStorage.getItem("gg_profile_pic")
   return `
     <section class="navigation">
         <div class="logo_title">
@@ -16,7 +17,7 @@ export const GiffyGram = () => {
             <div class="message_inbox" id="message_inbox"> ${applicationState.messageCounter.totalUnreadMessages} </div>
             <button id="new_message_form">Send DM </button>
             <button id="to_new_post_page_button"> Create New Post </button> 
-            <img class="profile_pic" src="${applicationState.currentUser.profile_pic}">
+            <img class="profile_pic_top" src="${profilePic}">
         </div>
         
         </section>

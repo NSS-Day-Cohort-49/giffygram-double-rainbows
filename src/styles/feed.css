@@ -37,7 +37,7 @@
     padding: 1rem 0 0 0 ; 
 }
 .post_wrapper{
-    margin:2rem;
+    margin:2rem 4rem;
     display: flex;
     justify-content: center;
     flex-direction: column;

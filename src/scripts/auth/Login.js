@@ -15,9 +15,9 @@ document.addEventListener("click", (event)=> {
                 foundUser = user
             }
         }
-        applicationState.currentUser.profile_pic = foundUser.profile_pic
 
         if (foundUser !== null) {
+            localStorage.setItem("gg_profile_pic", foundUser.profile_pic )
             localStorage.setItem("gg_user", foundUser.id)
             document.querySelector(".giffygram").dispatchEvent(new CustomEvent("stateChanged"))
             
