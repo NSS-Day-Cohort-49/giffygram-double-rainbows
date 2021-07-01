@@ -32,6 +32,10 @@
     text-align: center;
   
 }
+.checkbox_box{
+    margin: .30rem .5rem 0 0;
+    text-align: center;
+}
 
 .filter_users_button{
     margin:.5rem;
