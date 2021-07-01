@@ -1,4 +1,4 @@
-import { getPosts, getUsers, getLikes, sendLikes } from "../data/provider.js"
+import { getPosts, getUsers, getLikes, sendLikes, deleteLikes } from "../data/provider.js"
 // import { newPostForm } from "./PostForm.js"
 import { userProfile } from "./UserProfile.js"
 const applicationElement = document.querySelector(".giffygram")
@@ -9,13 +9,15 @@ export const postFeed = ()=> {
 	const usersName = getUsers()
 	const likes = getLikes()
 	const sortedPost = currentPost.sort((a,b)=> {return b.timeStamp-a.timeStamp})
+	let isLiked = false
 	let html = `<section class="post_feed_wrapper">`
 	sortedPost.map((post)=>{
+		isLiked = false
 		const postName = usersName.find((user) => {
 		const likedObj = likes.find((like) => {
 			return like.postId === post.id
 		})	
-		const isLiked = !!likedObj 
+		isLiked = !!likedObj 
 			console.log(isLiked)
 		if (user.id === post.userId){
 				return user
@@ -34,7 +36,8 @@ export const postFeed = ()=> {
 			<div> ${post.description} </div>
 			<div id="output"> at ${new Date(post.timeStamp)} </div>
 			<div class="favorite_wrapper">
-			<div class="favorite_true" id="favorite_button--${post.id}">"  "
+			<div class="favorite_${isLiked}" value= "favorite_${isLiked}" id="favorite_button--${post.id}">"  "
+			</div>
 			</div>
 			</div>
 			</div>
@@ -57,7 +60,7 @@ applicationElement.addEventListener("click", (event)=>{
 
 applicationElement.addEventListener("click", (event)=>{
 	if(event.target.id.startsWith("favorite_button")){
-		// if()
+		 if(event.target.value === "favorite_false") {
 		const [,targetpostId] = event.target.id.split("--")
 		const targetpostIdAsInt = parseInt(targetpostId)
 		
@@ -67,16 +70,10 @@ applicationElement.addEventListener("click", (event)=>{
 		}
 		sendLikes(sendToAPI)
 	}
-		// else {
-		// const deleteLike = (id) => {
-		// 	return fetch(`${API}/likes/${id}`, {method: "DELETE"})
-		// 		.then(
-		// 			() => {
-		// 				mainContainer.dispatchEvent(new CustomEvent(""))
-		// 			}
-		// 		)
-		// }
-		// }
-})
+		 else {
+			const [,targetpostId] = event.target.id.split("--")
+			const targetpostIdAsInt = parseInt(targetpostId)
 
-  
+		deleteLikes(targetpostIdAsInt)
+	
+}}}) 
