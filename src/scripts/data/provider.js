@@ -145,4 +145,5 @@ export const deletePost = (id) => {
     }
 
 
-// the problem is in line 137
+// the problem is in .then statement (test%207 404 not found)
+
