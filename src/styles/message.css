@@ -82,6 +82,7 @@
 .messages_toggle{
     display: flex;
     justify-content: center;
+    margin:1.5rem 0;
 }
 
 #read_messages, #unread_messages {
@@ -96,4 +97,10 @@
 
 .message_wrapper{
     margin:2rem;
+}
+
+.submit_new_message_wrapper{
+    display: flex;
+    justify-content: center;
+    margin: 10rem 10rem
 }
