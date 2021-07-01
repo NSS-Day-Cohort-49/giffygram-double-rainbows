@@ -5,7 +5,8 @@ import { messageFeed } from "./friends/DirectMessage.js";
 import { newMessageForm } from "./message/MessageForm.js";
 
 export const GiffyGram = () => {
-  // Show main main UI
+  
+  const profilePic = localStorage.getItem("gg_profile_pic")
   return `
     <section class="navigation">
         <div class="logo_title">
@@ -13,10 +14,24 @@ export const GiffyGram = () => {
             <h1 id="giffygram">Giffygram</h1>
         </div>
         <div class = "nav_buttons">
-            <div class="message_inbox" id="message_inbox"> ${applicationState.messageCounter.totalUnreadMessages} </div>
-            <button id="new_message_form">Send DM </button>
-            <button id="to_new_post_page_button"> Create New Post </button> 
-            <img class="profile_pic" src="${applicationState.currentUser.profile_pic}">
+        <button id="new_message_form">Send DM </button>
+        <button id="to_new_post_page_button"> Create New Post </button> 
+        <div class="message_inbox" id="message_inbox"> ${applicationState.messageCounter.totalUnreadMessages} </div>
+            <img class="profile_pic_top" id="profile_pic_top" src="${profilePic}">
+        </div>
+        
+        </section>
+        `;
+};
+export const GiffyGramLogIn = () => {
+  
+
+  return `
+    <section class="navigation">
+        
+        <div class="logo_title">
+            <img src="./images/pb.png" alt="Giffygram Logo" width="75" height="75" id="giffygram_login">
+            <h1 id="giffygram_login">Giffygram</h1>
         </div>
         
         </section>
@@ -56,5 +71,15 @@ applicationHeader.addEventListener("click", (event) => {
     // console.log(applicationState.currentPage.page);
     // applicationElement.innerHTML=newPostForm()
     applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
+  }
+});
+applicationHeader.addEventListener("click", (event) => {
+  if (event.target.id === "profile_pic_top") {
+    localStorage.removeItem("gg_user");
+    localStorage.removeItem("gg_user_profile_pic");
+    applicationState.currentPage.page = 0;
+    // console.log(applicationState.currentPage.page);
+    // applicationElement.innerHTML=newPostForm()
+    applicationHeader.dispatchEvent(new CustomEvent("stateChanged"));
   }
 });

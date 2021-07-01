@@ -83,8 +83,15 @@ h3{
 
 .userNameLink{
     padding-top: 1.25rem;
+    margin: 0rem 0 0 1rem;
 }
 
 .description_wrapper{
-    padding: 1.5rem;
+    padding: 1.5rem 1.5rem .25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.delete_button_wrapper{
+    margin: 0 0 0 20rem;
 }

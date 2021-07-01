@@ -76,16 +76,19 @@
     border-radius: 10rem ;
     background-color: rgba(255, 255, 33, 0.913);
     color: black;
-    padding: 1rem;
+    padding: .5rem;
+    margin: 2.25rem .25rem .5rem .25rem ;
+    box-shadow: rgb(87, 81, 81) .10rem .15rem;
 }
 
 .logo_title{
     display: flex;
+    margin: 1rem 0 0 0 ;
 }
 
 .nav_buttons{
     display: flex;
-    flex-basis: 72%;
+    flex-basis: 68%;
     justify-content: flex-end;
    
 
@@ -97,16 +100,19 @@
 #new_message_form{
     margin: 0 .25rem ; 
 }
-.message_inbox{
-    margin: 1.4rem 1rem ;
-    box-shadow: rgb(87, 81, 81) .10rem .15rem;
-  
-}
+
 
 .profile_pic{
-    height: auto;
-    width: 50px;
-    margin:  .35rem;
+    height: 70px;
+    width: auto;
+    margin: .35rem ;
+    border-radius: 2rem;
+    border: rgba(255, 255, 255, 0.57) .15rem solid;
+}
+.profile_pic_top{
+    height: 70px;
+    width: auto;
+    margin: 1rem 0 0 0;
     border-radius: 2rem;
     border: rgba(255, 255, 255, 0.57) .15rem solid;
 }
@@ -114,8 +120,8 @@
 
 #to_new_post_page_button,
 #new_message_form{
-    margin:1rem;
+    margin:2.5rem .25rem 1rem .25rem;
     padding: .35rem;
-    border-radius: 2rem;
-    box-shadow: rgb(87, 81, 81) .10rem .15rem;
+    border-radius: 3rem;
+    box-shadow: rgb(87, 81, 81) .05rem .1rem;
 }
