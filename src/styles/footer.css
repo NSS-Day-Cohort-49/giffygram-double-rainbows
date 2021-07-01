@@ -31,3 +31,8 @@
     text-align: center;
   
 }
+
+.filter_users_button{
+    margin:.5rem;
+    padding:.25rem;
+}
