@@ -71,7 +71,7 @@
     font-size: 1rem;
     line-height: 1.5;
     padding: 7px;
-    margin: 0;
+    margin: 1rem 3rem 1rem 35rem ;
     border-radius: 2rem;
 }
 
@@ -85,5 +85,15 @@
 }
 
 #read_messages, #unread_messages {
-    margin: 1rem;
+    margin: 0rem;
+    background-color: black;
+    color: whitesmoke;
+    padding: 1rem;
+    flex-basis: 50%;
+    text-align: center;
+
+}
+
+.message_wrapper{
+    margin:2rem;
 }
