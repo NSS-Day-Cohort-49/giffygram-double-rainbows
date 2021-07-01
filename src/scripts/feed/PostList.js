@@ -10,10 +10,19 @@ export const postFeed = ()=> {
 	const sortedPost = currentPost.sort((a,b)=> {return b.timeStamp-a.timeStamp})
 	let html = `<section class="post_feed_wrapper">`
 	sortedPost.map((post)=>{
+		let deleteButton = " "
 		const postName = usersName.find((user) => {
 			if (user.id === post.userId){
 				return user
 			}}) 
+
+		// if the user created the post, show a delete option on that post
+		if (post.userId === parseInt(localStorage.getItem("gg_user"))){
+			deleteButton = `<button class="postDelete" id="targetTitle--${post.id}" name="postDelete">DeleteMyPost</button>`
+		}else{
+			deleteButton = " "
+		}
+
 		return html += `
 			<div class="post_wrapper">
 			<div class="post_title_wrapper">
@@ -27,7 +36,7 @@ export const postFeed = ()=> {
 			<div class="description_wrapper">
 			<div> ${post.description} </div>
 			<div id="output"> at ${new Date(post.timeStamp)} </div>
-			<button class="postDelete" id="targetTitle--${post.title}" name="postDelete">DeleteMyPost</button>
+			${deleteButton}
 			</div>
 			</div>
 		`
@@ -56,9 +65,3 @@ applicationElement.addEventListener("click", (event) => {
     }
 })
 
-
-// applicationElement.addEventListener("click", (event) => {
-// 	if (event.target.id.startsWith("targetUser")) {
-// 	deletePost(event.target.id);
-// 	}
-// });
