@@ -11,6 +11,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 5rem;
 }
 
 .button_wrapper{
@@ -21,6 +22,7 @@
 .submit_new_post_wrapper{
     display: flex;
     justify-content: center;
+    margin: 10rem 10rem;
 }
 
 .submit_new_post_button{
@@ -30,15 +32,34 @@
 .cancel_new_post_button{
     margin: .25rem;
 }
-
+.post_feed_wrapper{
+    margin:4rem 0 0 0 ;
+    padding: 1rem 0 0 0 ; 
+}
 .post_wrapper{
-    margin: 2rem;
+    margin:2rem;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    background-color: black;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: .20rem .35rem rgba(38, 36, 36, 0.68);
 }
 
 .post_gif{
     border: solid black 3px;
     
 }
+
+.post_title{
+    flex-basis: 90%;
+    text-align: center;
+    text-shadow: rgb(87, 81, 81) .25rem .15rem;
+}
+
+.bobble_head_wrapper{
+    display: flex;
+}
+

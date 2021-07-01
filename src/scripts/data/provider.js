@@ -9,7 +9,9 @@ export const applicationState = {
     messages:[],
     posts:[],
     likes:[],
-    currentUser: {},
+    currentUser: {
+     
+    },
     feed: {
         chosenUser: null,
         displayFavorites: false,

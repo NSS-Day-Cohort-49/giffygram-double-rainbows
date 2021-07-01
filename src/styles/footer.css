@@ -2,17 +2,32 @@
     display: flex;
     flex-wrap: nowrap;
     justify-content: start;
-    border-bottom: 1px solid lightblue;
-    padding: 0.5em 0 0.5em 1em;
+    border-bottom: 1px solid rgba(47, 55, 58, 0.911);
+    padding: 0.5em 0 0.5em 0em;
     margin-bottom: 2em;
     position: fixed;
     z-index: 11;
     bottom: 0;
     width: 100%;
-    background-color: whitesmoke;
+    background-color: black;
+    color: whitesmoke;
     margin: auto;
 }
 
 .footer__item {
     margin: 0 1rem;
+}
+
+
+.checkbox_wrapper{
+    display: flex;
+    flex-basis: 73%;
+    justify-content: flex-end;
+      
+}
+
+.checkbox{
+    margin: 0 .25rem;
+    text-align: center;
+  
 }

@@ -28,12 +28,27 @@ export const messageFeed = () => {
 	applicationState.messageCounter.totalUnreadMessages = unreadMessages.length
 	console.log(applicationState)
 	
-	let html = `<section class="messages"><h1 class="dm_header"> Direct Messages </h1><container class="messages_toggle">
-	<button id="unread_messages"> New Messages</button><button id="read_messages">Read Messages</button>
+	let html = `<section class="messages">
+	<h1 class="dm_header"> Direct Messages </h1>
+	<container class="messages_toggle">
+	<div id="unread_messages"> New Messages</div>
+	<button id="read_messages">Read Messages</button>
 	</container><div>`
 
 	html += sortedMessages.map((message)=>{ const senderObj = users.find(user => user.id === message.userId) 
-		return `<div class="message"><h3>From: ${senderObj.name} ${senderObj.surname}</h3> <div ><div id="message--${message.id}"> ${message.message}</div><button class="is_read_button" id=is_read--${message.id}> Mark as Read</button></div></div>`}).join("")
+		return `
+		<div class="message">
+			<div class="bobble_head_wrapper">
+			<img class="profile_pic" src=".${senderObj.profile_pic}">
+			<div class="userNameLink">${senderObj.name} ${senderObj.surname}</div> 
+			</div>
+		<div class="message_wrapper">
+			<div id="message--${message.id}"> ${message.message}</div>
+			</div>
+			<button class="is_read_button" id=is_read--${message.id}> Mark as Read</button>
+			
+		</div>
+		</div>`}).join("")
 	html += `</section>`
 	return html
 }
@@ -50,14 +65,34 @@ export const readMessageFeed = () => {
 	applicationState.messageCounter.totalUnreadMessages = unreadMessages.length
 	console.log(applicationState)
 	
-	let html = `<section class="messages"><h1 class="dm_header"> Direct Messages </h1><container class="messages_toggle">
-	<button id="unread_messages"> New Messages</button><button id="read_messages">Read Messages</button>
+	let html = `
+	<section class="messages">
+	<h1 class="dm_header"> Direct Messages </h1>
+	<container class="messages_toggle">
+	<button id="unread_messages"> New Messages</button>
+	<div id="read_messages">Read Messages</div>
 	</container><div>`
 
-	html += sortedMessages.map((message)=>{ const senderObj = users.find(user => user.id === message.userId) 
-		return `<div class="message"><h3>From: ${senderObj.name} ${senderObj.surname}</h3> <div ><div id="message--${message.id}"> ${message.message}</div><button class="make_unread_button" id=make_unread--${message.id}> Mark as Unread</button></div></div>`}).join("")
+	html += sortedMessages.map((message)=>{ 
+		const senderObj = users.find(user => user.id === message.userId) 
+
+		return `
+		<div class="message">
+			<div class="bobble_head_wrapper">
+				<img class="profile_pic" src=".${senderObj.profile_pic}">
+				<div class="userNameLink">${senderObj.name} ${senderObj.surname}</div>
+			</div>
+			<div class="message_wrapper">
+				<div id="message--${message.id}"> ${message.message}</div>
+			</div>
+			<button class="make_unread_button" id=make_unread--${message.id}> Mark as Unread</button>	
+		 </div>
+		 </div>
+		 `}).join("")
 	html += `</section>`
 	return html
+
+	
 }
 
 
@@ -97,7 +132,8 @@ applicationElement.addEventListener("click", (event) => {
 applicationElement.addEventListener("click", (event) => {
 	
 	if(event.target.id === "unread_messages"){
-		applicationState.currentPage.page = 1
+	
+			applicationState.currentPage.page = 1
 		console.log(applicationState.currentPage.page)
 		applicationElement.innerHTML = messageFeed()
 		
@@ -106,6 +142,7 @@ applicationElement.addEventListener("click", (event) => {
 applicationElement.addEventListener("click", (event) => {
 	
 	if(event.target.id === "read_messages"){
+		
 		applicationState.currentPage.page = 2
 		console.log(applicationState.currentPage.page)
 		applicationElement.innerHTML = readMessageFeed()
