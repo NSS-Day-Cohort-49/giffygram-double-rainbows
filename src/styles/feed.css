@@ -48,3 +48,17 @@
     width:25px;
     height:auto;
 }
+
+.favorite_false{
+color:rgba(255, 255, 255, 0);
+width:25px;
+height:auto;
+background-image:url("../images/favorite-star-blank.svg");
+}
+
+.favorite_true{
+color:rgba(255, 255, 255, 0);
+width:25px;
+height:auto;
+background-image:url("../images/favorite-star-yellow.svg");
+}

@@ -1,4 +1,4 @@
-import { getPosts, getUsers, sendLikes } from "../data/provider.js"
+import { getPosts, getUsers, getLikes, sendLikes } from "../data/provider.js"
 import { newPostForm } from "./PostForm.js"
 import { userProfile } from "./UserProfile.js"
 const applicationElement = document.querySelector(".giffygram")
@@ -7,11 +7,17 @@ export const postFeed = ()=> {
 	
 	const currentPost = getPosts()
 	const usersName = getUsers()
+	const likes = getLikes()
 	const sortedPost = currentPost.sort((a,b)=> {return b.timeStamp-a.timeStamp})
 	let html = `<button id="to_new_post_page_button"> Create New Post </button> <section class="post_feed_wrapper">`
 	sortedPost.map((post)=>{
 		const postName = usersName.find((user) => {
-			if (user.id === post.userId){
+		const likedObj = likes.find((like) => {
+			return like.postId === post.id
+		})	
+		const isLiked = !!likedObj 
+			console.log(isLiked)
+		if (user.id === post.userId){
 				return user.name
 			}}) 
 		return html += `
@@ -22,9 +28,8 @@ export const postFeed = ()=> {
 			<div> Posted by <div class="userNameLink" id="targetUser--${post.userId}"> ${postName.name}</div>
 			<div id="output"> at ${new Date(post.timeStamp)} </div>
 			<div class="favorite_wrapper">
-			<button id="favorite_button--${post.id}" src='./images/favorite-star-yellow.svg'>
-		    <img class="star_button" id="favorite_button--${post.id}" src="./images/favorite-star-blank.svg">
-			<button id="favorite_button--${post.id}" src='./images/favorite-star-blank.svg'>
+			<div class="favorite_true" id="favorite_button--${post.id}">"  "
+			</div>
 			</div>
 			</div>
 		`
@@ -53,6 +58,7 @@ applicationElement.addEventListener("click", (event)=>{
 
 applicationElement.addEventListener("click", (event)=>{
 	if(event.target.id.startsWith("favorite_button")){
+		// if(event.target.id.startsWith){
 		const [,targetpostId] = event.target.id.split("--")
 		const targetpostIdAsInt = parseInt(targetpostId)
 		
@@ -62,4 +68,24 @@ applicationElement.addEventListener("click", (event)=>{
 		}
 		sendLikes(sendToAPI)
 	}
+		// else {
+		// const deleteLike = (id) => {
+		// 	return fetch(`${API}/likes/${id}`, {method: "DELETE"})
+		// 		.then(
+		// 			() => {
+		// 				mainContainer.dispatchEvent(new CustomEvent(""))
+		// 			}
+		// 		)
+		// }
+		// }
 })
+
+// export const deleteLike = (id) => {
+// 	return fetch(`${API}/likes/${id}`, { method: "DELETE" })
+// 		.then(
+// 			() => {
+// 				mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+// 			}
+// 		)
+//   }
+  
