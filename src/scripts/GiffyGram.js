@@ -23,6 +23,20 @@ export const GiffyGram = () => {
         </section>
         `;
 };
+export const GiffyGramLogIn = () => {
+  // Show main main U
+
+  return `
+    <section class="navigation">
+        
+        <div class="logo_title">
+            <img src="./images/pb.png" alt="Giffygram Logo" width="75" height="75" id="giffygram_login">
+            <h1 id="giffygram_login">Giffygram</h1>
+        </div>
+        
+        </section>
+        `;
+};
 
 const applicationHeader = document.querySelector(".header");
 const applicationElement = document.querySelector(".giffygram");

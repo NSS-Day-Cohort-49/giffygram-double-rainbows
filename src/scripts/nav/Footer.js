@@ -18,6 +18,14 @@ export const footer = () => {
 		<label class="checkbox" for="favorite_filter">Favorites</label></div>
 	</div>`
 }
+export const footerLogIn = () => {
+	
+	
+	return `
+	<div class="footer"> 
+	
+	</div>`
+}
 
 export const filterByUser =(userId)=> {
 	

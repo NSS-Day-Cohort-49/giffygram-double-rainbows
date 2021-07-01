@@ -40,7 +40,7 @@ export const messageFeed = () => {
 		<div class="message">
 			<div class="bobble_head_wrapper">
 			<img class="profile_pic" src=".${senderObj.profile_pic}">
-			<div class="userNameLink">${senderObj.name} ${senderObj.surname}</div> 
+			<div class="userNameLink_message">${senderObj.name} ${senderObj.surname}</div> 
 			</div>
 		<div class="message_wrapper">
 			<div id="message--${message.id}"> ${message.message}</div>
@@ -81,7 +81,7 @@ export const readMessageFeed = () => {
 		<div class="message">
 			<div class="bobble_head_wrapper">
 				<img class="profile_pic" src=".${senderObj.profile_pic}">
-				<div class="userNameLink">${senderObj.name} ${senderObj.surname}</div>
+				<div class="userNameLink_message">${senderObj.name} ${senderObj.surname}</div>
 			</div>
 			<div class="message_wrapper">
 				<div id="message--${message.id}"> ${message.message}</div>
