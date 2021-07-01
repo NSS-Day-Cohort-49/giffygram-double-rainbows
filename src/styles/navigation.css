@@ -106,6 +106,13 @@
 .profile_pic{
     height: 70px;
     width: auto;
+    margin: .35rem ;
+    border-radius: 2rem;
+    border: rgba(255, 255, 255, 0.57) .15rem solid;
+}
+.profile_pic_top{
+    height: 70px;
+    width: auto;
     margin: 1rem 0 0 0;
     border-radius: 2rem;
     border: rgba(255, 255, 255, 0.57) .15rem solid;
