@@ -39,7 +39,7 @@ export const renderApp = () => {
 
     } else {
         applicationElement.innerHTML = LoginForm()
-        console.log(applicationState)
+        // console.log(applicationState)
     }
 })
 }
