@@ -29,7 +29,7 @@ const applicationElement = document.querySelector(".giffygram");
 applicationHeader.addEventListener("click", (event) => {
   if (event.target.id === "giffygram") {
     applicationState.currentPage.page = 0;
-    console.log(applicationState.currentPage.page);
+    // console.log(applicationState.currentPage.page);
 
     // applicationElement.innerHTML=postFeed()
     applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
@@ -44,7 +44,7 @@ applicationHeader.addEventListener("click", (event) => {
 applicationHeader.addEventListener("click", (event) => {
   if (event.target.id === "message_inbox") {
     applicationState.currentPage.page = 1;
-    console.log(applicationState.currentPage.page);
+    // console.log(applicationState.currentPage.page);
     // applicationElement.innerHTML= messageFeed()
     applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
   }
@@ -53,7 +53,7 @@ applicationHeader.addEventListener("click", (event) => {
 applicationHeader.addEventListener("click", (event) => {
   if (event.target.id === "to_new_post_page_button") {
     applicationState.currentPage.page = 3;
-    console.log(applicationState.currentPage.page);
+    // console.log(applicationState.currentPage.page);
     // applicationElement.innerHTML=newPostForm()
     applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
   }

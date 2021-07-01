@@ -26,7 +26,7 @@ export const messageFeed = () => {
 	const sortedMessages = unreadMessages.sort((a,b)=> {return b.id-a.id})
 	applicationState.messageCounter.totalReadMessages = readMessages.length
 	applicationState.messageCounter.totalUnreadMessages = unreadMessages.length
-	console.log(applicationState)
+	// console.log(applicationState)
 	
 	let html = `<section class="messages">
 	<h1 class="dm_header"> Direct Messages </h1>
@@ -63,7 +63,7 @@ export const readMessageFeed = () => {
 	const sortedMessages = readMessages.sort((a,b)=> {return b.id-a.id})
 	applicationState.messageCounter.totalReadMessages = readMessages.length
 	applicationState.messageCounter.totalUnreadMessages = unreadMessages.length
-	console.log(applicationState)
+	// console.log(applicationState)
 	
 	let html = `
 	<section class="messages">
@@ -102,7 +102,7 @@ applicationElement.addEventListener("click", (event) => {
 	
 	if(event.target.id.startsWith("is_read")){
 		applicationState.currentPage.page = 1
-		console.log(applicationState.currentPage.page)
+		// console.log(applicationState.currentPage.page)
 		const [,messageId] = event.target.id.split("--")
 		const messageAsNumber = parseInt(messageId)
 		const sendToAPI = {
@@ -118,7 +118,7 @@ applicationElement.addEventListener("click", (event) => {
 	if(event.target.id.startsWith("make_unread")){
 
 		applicationState.currentPage.page = 2
-		console.log(applicationState.currentPage.page)
+		// console.log(applicationState.currentPage.page)
 		const [,messageId] = event.target.id.split("--")
 		const messageAsNumber = parseInt(messageId)
 		const sendToAPI = {
@@ -134,7 +134,7 @@ applicationElement.addEventListener("click", (event) => {
 	if(event.target.id === "unread_messages"){
 	
 			applicationState.currentPage.page = 1
-		console.log(applicationState.currentPage.page)
+		// console.log(applicationState.currentPage.page)
 		applicationElement.innerHTML = messageFeed()
 		
 	}
@@ -144,7 +144,7 @@ applicationElement.addEventListener("click", (event) => {
 	if(event.target.id === "read_messages"){
 		
 		applicationState.currentPage.page = 2
-		console.log(applicationState.currentPage.page)
+		// console.log(applicationState.currentPage.page)
 		applicationElement.innerHTML = readMessageFeed()
 		
 	}
