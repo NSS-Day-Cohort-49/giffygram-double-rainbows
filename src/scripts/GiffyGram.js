@@ -5,7 +5,7 @@ import { messageFeed } from "./friends/DirectMessage.js";
 import { newMessageForm } from "./message/MessageForm.js";
 
 export const GiffyGram = () => {
-  // Show main main U
+  
   const profilePic = localStorage.getItem("gg_profile_pic")
   return `
     <section class="navigation">
@@ -17,14 +17,14 @@ export const GiffyGram = () => {
         <button id="new_message_form">Send DM </button>
         <button id="to_new_post_page_button"> Create New Post </button> 
         <div class="message_inbox" id="message_inbox"> ${applicationState.messageCounter.totalUnreadMessages} </div>
-            <img class="profile_pic_top" src="${profilePic}">
+            <img class="profile_pic_top" id="profile_pic_top" src="${profilePic}">
         </div>
         
         </section>
         `;
 };
 export const GiffyGramLogIn = () => {
-  // Show main main U
+  
 
   return `
     <section class="navigation">
@@ -71,5 +71,15 @@ applicationHeader.addEventListener("click", (event) => {
     // console.log(applicationState.currentPage.page);
     // applicationElement.innerHTML=newPostForm()
     applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
+  }
+});
+applicationHeader.addEventListener("click", (event) => {
+  if (event.target.id === "profile_pic_top") {
+    localStorage.removeItem("gg_user");
+    localStorage.removeItem("gg_user_profile_pic");
+    applicationState.currentPage.page = 0;
+    // console.log(applicationState.currentPage.page);
+    // applicationElement.innerHTML=newPostForm()
+    applicationHeader.dispatchEvent(new CustomEvent("stateChanged"));
   }
 });
