@@ -24,18 +24,21 @@ export const applicationState = {
 };
 
 export const fetchExternalData = () => {
-  return Promise.all([
-    fetch(`${API}/users`),
-    fetch(`${API}/messages`),
-    fetch(`${API}/posts`),
-    fetch(`${API}/likes`),
-  ])
-    .then((responses) => {
-      return Promise.all(
-        responses.map((response) => {
-          return response.json();
-        })
-      );
+    return Promise.all([
+        fetch(`${API}/users`),
+        fetch(`${API}/messages`),
+        fetch(`${API}/posts`),
+        fetch(`${API}/likes`),
+    ]).then(responses => {
+        return Promise.all(responses.map(response => {
+            return response.json()
+        }))
+    }).then(externalData => {
+        applicationState.users = externalData[0]
+        applicationState.messages = externalData[1]
+        applicationState.posts = externalData[2]
+        applicationState.likes = externalData[3]
+    
     })
     .then((externalData) => {
       applicationState.users = externalData[0];
@@ -140,3 +143,31 @@ export const deleteLikes = (id) => {
     appContainer.dispatchEvent(new CustomEvent("stateChanged"));
   });
 };
+export const sendIsReadBoolean = (boolean,id) => {
+	const fetchOptions = {
+	method: "PATCH",
+	headers: {
+	    "Content-Type": "application/json",
+	},
+	body: JSON.stringify(boolean),
+	};
+    
+	return fetch(`${API}/messages/${id}`, fetchOptions)
+	.then((response) => response.json())
+	.then(() => {
+	    appContainer.dispatchEvent(new CustomEvent("stateChanged"));
+	})
+    };
+
+
+export const deletePost = (id) => {
+    return fetch(`${API}/posts/${id}`, {
+    method: "DELETE"
+    })
+    .then
+    (() => appContainer.dispatchEvent(new CustomEvent("stateChanged")))
+    }
+
+
+// the problem is in .then statement (test%207 404 not found)
+

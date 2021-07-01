@@ -1,4 +1,4 @@
-import { getPosts, getUsers, getLikes, sendLikes, deleteLikes } from "../data/provider.js"
+import { getPosts, getUsers, getLikes, sendLikes, deleteLikes, deletePost } from "../data/provider.js"
 // import { newPostForm } from "./PostForm.js"
 import { userProfile } from "./UserProfile.js"
 const applicationElement = document.querySelector(".giffygram")
@@ -13,6 +13,7 @@ export const postFeed = ()=> {
 	let html = `<section class="post_feed_wrapper">`
 	sortedPost.map((post)=>{
 		isLiked = false
+		let deleteButton = " "
 		const postName = usersName.find((user) => {
 		const likedObj = likes.find((like) => {
 			return like.postId === post.id
@@ -22,6 +23,14 @@ export const postFeed = ()=> {
 		if (user.id === post.userId){
 				return user
 			}}) 
+
+		// if the user created the post, show a delete option on that post
+		if (post.userId === parseInt(localStorage.getItem("gg_user"))){
+			deleteButton = `<button class="postDelete" id="targetTitle--${post.id}" name="postDelete">DeleteMyPost</button>`
+		}else{
+			deleteButton = " "
+		}
+
 		return html += `
 			<div class="post_wrapper">
 			<div class="post_title_wrapper">
@@ -39,6 +48,7 @@ export const postFeed = ()=> {
 			<div class="favorite_${isLiked}" value= "favorite_${isLiked}" id="favorite_button--${post.id}">"  "
 			</div>
 			</div>
+			${deleteButton}
 			</div>
 			</div>
 		`
@@ -77,3 +87,11 @@ applicationElement.addEventListener("click", (event)=>{
 		deleteLikes(targetpostIdAsInt)
 	
 }}}) 
+
+applicationElement.addEventListener("click", (event) => {
+    if (event.target.id.startsWith("targetTitle")) {
+        const [,targetTitle] = event.target.id.split("--")
+        deletePost(targetTitle)
+    }
+})
+
