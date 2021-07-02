@@ -40,21 +40,3 @@
   border-radius: 2rem;
 }
 
-.favorite_false {
-  color: rgba(255, 255, 255, 0);
-  width: 25px;
-  height: auto;
-  background: url("../images/favorite-star-blank.png");
-  filter: invert(100%);
-  text-shadow: none;
-
-}
-
-.favorite_true {
-  color: rgba(255, 255, 255, 0);
-  width: 25px;
-  height: auto;
-  background: url("../images/favorite-star-yellow.svg");
-  text-shadow: none;
-
-}
