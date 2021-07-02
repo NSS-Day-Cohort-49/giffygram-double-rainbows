@@ -1,4 +1,5 @@
 import { getPosts, getUsers, deletePost, deleteLikes, getLikes, sendLikes } from "../data/provider.js"
+import { filterByUser } from "../nav/Footer.js"
 // import { newPostForm } from "./PostForm.js"
 import { userProfile } from "./UserProfile.js"
 const applicationElement = document.querySelector(".giffygram")
@@ -36,24 +37,22 @@ export const postFeed = ()=> {
 			// userId === currentUser 
 			return html += `
 			<div class="post_wrapper">
-			<div class="post_title_wrapper">
-			<div class="bobble_head_wrapper">
-			<img class="profile_pic" src=".${userName.profile_pic}">
-			<div class="userNameLink" id="targetUser--${post.userId}">${userName.name} ${userName.surname}</div>
-			</div>
-			<h2 class="post_title"> ${post.title}</h2>
-			</div> 
-			<img class="post_gif" src="${post.imageURL}" alt="${post.title}"> 
-			<div class="description_wrapper">
-			<div> ${post.description} </div>
-			<div id="output"> at ${new Date(post.timeStamp)} </div>
-			<div class="favorite_wrapper">
-			<div class="favorite_${isLiked}" value= "favorite_${isLiked}" id="favorite_button--${post.id}--${isLiked}"> favStar
-			</div>
-			
-			${deleteButton}
-			</div>
-			</div>
+				<div class="post_title_wrapper">
+					<div class="bobble_head_wrapper">
+						<img class="profile_pic" src=".${userName.profile_pic}">
+						<div class="userNameLink" id="targetUser--${post.userId}">${userName.name} ${userName.surname}</div>
+					</div>
+				<h2 class="post_title"> ${post.title}</h2>
+				</div> 
+				<img class="post_gif" src="${post.imageURL}" alt="${post.title}"> 
+				<div class="description_wrapper">
+					<div> ${post.description} </div>
+					<div id="output"> at ${new Date(post.timeStamp)} </div>
+					<div class="favorite_wrapper">
+						<div class="favorite_${isLiked}" value= "favorite_${isLiked}" id="favorite_button--${post.id}--${isLiked}"> favStar</div>
+					${deleteButton}
+					</div>
+				</div>
 			</div>
 			`
 		}).join("")

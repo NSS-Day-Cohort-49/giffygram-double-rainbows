@@ -1,4 +1,7 @@
 import { getUsers, sendUsers } from "../data/provider.js"
+import { LoginForm } from "./Login.js"
+
+const appContainer = document.querySelector(".giffygram")
 
 export const newUserSignUp = () => {
 	
@@ -14,7 +17,7 @@ export const newUserSignUp = () => {
 	if (checkDuplicateEmail){
 		
 		window.alert("This email already exist. Please log in")
-		console.log("This email already exist. Please log in",checkDuplicateEmail, email, password, firstName,lastName)
+		
 	}
 	else{
 
@@ -57,6 +60,7 @@ export const newUserSignUpForm = () => {
            
 		</form>
             <button id="submitSignUpButton">Sign Up</button>
+	    <button id="to_login_button"> To Login</button>
         </div>
 	
 	
@@ -68,5 +72,10 @@ export const newUserSignUpForm = () => {
 document.addEventListener("click", (event) => {
 	if (event.target.id === "submitSignUpButton"){
 		newUserSignUp()
+	}
+})
+document.addEventListener("click", (event) => {
+	if (event.target.id === "to_login_button"){
+		appContainer.innerHTML = LoginForm()
 	}
 })
