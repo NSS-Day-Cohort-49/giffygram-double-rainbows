@@ -7,6 +7,7 @@ import { footer, footerLogIn } from "./nav/Footer.js"
 import { messageCounter, messageFeed, readMessageFeed } from "./friends/DirectMessage.js"
 import { newMessageForm } from "./message/MessageForm.js"
 import { newPostForm } from "./feed/PostForm.js"
+import { filterByUser } from "./nav/Footer.js"
 
 const applicationElement = document.querySelector(".giffygram")
 const applicationHeader = document.querySelector(".header")
@@ -31,6 +32,9 @@ export const renderApp = () => {
         }
         if(applicationState.currentPage.page === 3){
             applicationElement.innerHTML = newPostForm()
+        }
+        if(applicationState.currentPage.page === 4){
+            applicationElement.innerHTML = filterByUser(applicationState.feed.chosenUser)
         }
         
         applicationHeader.innerHTML = GiffyGram()
