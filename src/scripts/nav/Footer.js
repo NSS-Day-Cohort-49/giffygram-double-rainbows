@@ -1,4 +1,4 @@
-import { applicationState, getPosts, getUsers } from "../data/provider.js"
+import { applicationState, getPosts, getUsers,getLikes } from "../data/provider.js"
 import { postFeed } from "../feed/PostList.js";
 const applicationElement = document.querySelector(".giffygram");
 const applicationFooter = document.querySelector(".footer")
@@ -31,6 +31,8 @@ export const filterByUser =(userId)=> {
 	
 	const posts = getPosts()
 	const users = getUsers()
+	const likes = getLikes()
+	let isLiked = false
 	const sortedPost = posts.sort((a,b)=> {return b.id-a.id})
 
 	const filteredPost = sortedPost.filter((post) => {
@@ -40,6 +42,10 @@ export const filterByUser =(userId)=> {
 	let html = `<section class="post_feed_wrapper">`
 	filteredPost.map((post) => { 
 		let deleteButton = " "
+		const likedObj = likes.find((like) => {return like.postId === post.id})	
+
+		isLiked = !!likedObj 
+
 		const postName = users.find((user) => {
 			if (user.id === post.userId){
 				return user
@@ -65,8 +71,11 @@ export const filterByUser =(userId)=> {
 				<div class="description_wrapper">
 					<div> ${post.description} </div>
 					<div id="output"> at ${new Date(post.timeStamp)} </div>
+					<div class="favorite_wrapper">
+						<div class="favorite_${isLiked}" value= "favorite_${isLiked}" id="favorite_button--${post.id}--${isLiked}--${post.userId}"> favStar</div>
 				${deleteButton}
 				</div>
+			</div>
 			</div>
 			
 		`
@@ -86,7 +95,7 @@ applicationFooter.addEventListener("change", (event) => {
 			applicationState.currentPage.page = 0
 			applicationElement.innerHTML = postFeed()
 		}else{
-			applicationState.currentPage.page = 0
+			applicationState.currentPage.page = 4
 			applicationElement.innerHTML = filterByUser(userIdAsNumb);
 			
 		}

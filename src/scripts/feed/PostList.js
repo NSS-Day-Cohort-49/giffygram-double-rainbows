@@ -1,7 +1,5 @@
-import { getPosts, getUsers, deletePost, deleteLikes, getLikes, sendLikes } from "../data/provider.js"
+import { getPosts, getUsers, deletePost, deleteLikes, getLikes, sendLikes, applicationState } from "../data/provider.js"
 import { filterByUser } from "../nav/Footer.js"
-// import { newPostForm } from "./PostForm.js"
-import { userProfile } from "./UserProfile.js"
 const applicationElement = document.querySelector(".giffygram")
 
 export const postFeed = ()=> {
@@ -49,7 +47,7 @@ export const postFeed = ()=> {
 					<div> ${post.description} </div>
 					<div id="output"> at ${new Date(post.timeStamp)} </div>
 					<div class="favorite_wrapper">
-						<div class="favorite_${isLiked}" value= "favorite_${isLiked}" id="favorite_button--${post.id}--${isLiked}"> favStar</div>
+						<div class="favorite_${isLiked}" value= "favorite_${isLiked}" id="favorite_button--${post.id}--${isLiked}--${post.userId}"> favStar</div>
 					${deleteButton}
 					</div>
 				</div>
@@ -65,7 +63,8 @@ export const postFeed = ()=> {
 		if(event.target.id.startsWith("targetUser")){
 		const [,targetUser] = event.target.id.split("--")
 		const targetUserId = parseInt(targetUser)
-		applicationElement.innerHTML = userProfile(targetUserId)
+		applicationState.currentPage.page === 4
+		applicationElement.innerHTML = filterByUser(targetUserId)
 		
 		
 	}
@@ -83,9 +82,10 @@ applicationElement.addEventListener("click", (event) => {
 	if (event.target.id.startsWith("favorite_button--")) {
 		const currentUser = parseInt(localStorage.getItem("gg_user"))
 		const likes = getLikes()
-		const [,postId, boolean, ] = event.target.id.split("--")
+		const [,postId, boolean, postUserId ] = event.target.id.split("--")
 		const targetPostAsInt = parseInt(postId)
-		
+		const postUserIdAsInt = parseInt(postUserId)
+		applicationState.feed.chosenUser = postUserIdAsInt
 		if (boolean === "false"){
 			
 			const sendToAPI = {
