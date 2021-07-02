@@ -12,7 +12,9 @@ export const newUserSignUp = () => {
 	const checkDuplicateEmail = users.find(user => user.email === email)
 
 	if (checkDuplicateEmail){
-	console.log("This email already exist. Please log in",checkDuplicateEmail, email, password, firstName,lastName)
+		
+		window.alert("This email already exist. Please log in")
+		console.log("This email already exist. Please log in",checkDuplicateEmail, email, password, firstName,lastName)
 	}
 	else{
 
