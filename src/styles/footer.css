@@ -1,44 +1,59 @@
 .footer {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: start;
-    border-bottom: 1px solid rgba(47, 55, 58, 0.911);
-    padding: 0.5em 0 0.5em 0em;
-    margin-bottom: 2em;
-    position: fixed;
-    z-index: 11;
-    bottom: 0;
-    width: 100%;
-    background-color: black;
-    color: whitesmoke;
-    margin: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: start;
+  border-bottom: 1px solid rgba(47, 55, 58, 0.911);
+  padding: 0.5em 0 0.5em 0em;
+  margin-bottom: 2em;
+  position: fixed;
+  z-index: 11;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: whitesmoke;
+  margin: auto;
 }
 
 .footer__item {
-    margin: 0 1rem;
+  margin: 0 1rem;
 }
 
-
-.checkbox_wrapper{
-    display: flex;
-    flex-basis: 73%;
-    justify-content: flex-end;
-    margin: 1rem 1rem 0 0;
-      
+.checkbox_wrapper {
+  display: flex;
+  flex-basis: 73%;
+  justify-content: flex-end;
+  margin: 1rem 1rem 0 0;
 }
 
-.checkbox{
-    margin: .1rem .5rem 0 0;
-    text-align: center;
-  
+.checkbox {
+  margin: 0.1rem 0.5rem 0 0;
+  text-align: center;
 }
-.checkbox_box{
-    margin: .30rem .5rem 0 0;
-    text-align: center;
+.checkbox_box {
+  margin: 0.3rem 0.5rem 0 0;
+  text-align: center;
 }
 
-.filter_users_button{
-    margin:.5rem;
-    padding:.35rem;
-    border-radius: 2rem;
+.filter_users_button {
+  margin: 0.5rem;
+  padding: 0.35rem;
+  border-radius: 2rem;
+}
+
+.favorite_false {
+  color: rgba(255, 255, 255, 0.906);
+  width: 25px;
+  height: auto;
+  background: url("../images/favorite-star-blank.png");
+  text-shadow: none;
+
+}
+
+.favorite_true {
+  color: rgba(255, 255, 255, 0);
+  width: 25px;
+  height: auto;
+  background: url("../images/favorite-star-yellow.svg");
+  text-shadow: none;
+
 }

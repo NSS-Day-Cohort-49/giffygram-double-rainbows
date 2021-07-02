@@ -145,7 +145,14 @@ export const deletePost = (id) => {
     .then
     (() => appContainer.dispatchEvent(new CustomEvent("stateChanged")))
     }
+export const deleteLikes = (id) => {
+    return fetch(`${API}/likes/${id}`, {
+    method: "DELETE"
+    })
+    .then
+    (() => appContainer.dispatchEvent(new CustomEvent("stateChanged")))
+    }
 
 
-// the problem is in .then statement (test%207 404 not found)
+
 
