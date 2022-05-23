@@ -59,3 +59,5 @@ Create a file named `PULL_REQUEST_TEMPLATE.md` in your repository and place the 
     > Confirm file modifications are present as indicated above.
     > Confirm no unused code or extraneous comments exist.
 ```
+### ERD
+https://lucid.app/lucidchart/5719ba2e-c8e9-4036-9d5b-e19ddbaaa871/edit?docId=5719ba2e-c8e9-4036-9d5b-e19ddbaaa871&shared=true&page=0_0&invitationId=inv_0252925f-c692-493f-909d-de351d9dcc99#
